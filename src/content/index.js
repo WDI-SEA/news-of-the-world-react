@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import { Display } from './Display';
+import { Landing } from './Landing';
+
 import '../styling/style.css';
 
 // export const is quicker but must be imported directly
@@ -10,7 +13,9 @@ export const App = () => {
     return (
         // Router for setting routes
         <Router>
-            <div className=''>
+            <div className='app'>
+                <Landing />
+                <Display />
             </div>
         </Router>
     )
