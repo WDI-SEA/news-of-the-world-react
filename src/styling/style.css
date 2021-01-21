@@ -1,0 +1,6 @@
+/* you can style everything inside here, but best practice */
+/* is to separate styling by component or by related components */
+.app {
+    width: 100%;
+    height: 100%;
+}
