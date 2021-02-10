@@ -1,12 +1,23 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 export const Display = props => {
 
-    let content = props.data ? '' : 'Ruh-Roh! API or props fail!';
+    let content = props.article ? props.article : 'Ruh-Roh! API or props fail!';
+
 
     return (
         <div>
-            <p>{content}</p>
+            <h1>{content.title}</h1>
+            <p>{content.content}</p>
+            <div className="imageBox">
+                <img className='artImage' src={content.urlToImage} alt={content.title} />
+            </div>
+            <a href={content.url}>Read More...</a>
+            <hr />
+            <div>
+                <Link to="/">Home</Link>
+            </div>
         </div>
     )
 };
