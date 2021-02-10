@@ -35,7 +35,7 @@ export const App = () => {
 
     const results = data.hits.map((article, i) => {
             return (
-                <div className="linktopia">
+                <div key={`key is ${i}`} className="linktopia">
                     <Link to={`/details/${i}`}><p>{article.title}</p></Link>
                 </div>
             ) 

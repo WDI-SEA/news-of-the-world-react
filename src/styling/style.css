@@ -6,14 +6,8 @@
     font-family: 'Avenir Black';
 }
 
-.headerContainer {
-    text-align: justify;
-}
-
 h1{
     text-align: center;
-    width:100%;
-    height:1em;
 }
 
 .linktopia {
@@ -32,9 +26,13 @@ h1{
 }
 
 .searchBar {
-    width: 100vw;
+    width: 90vw;
     height: 5vh;
     text-align: center;
     font-size: xx-large;
     font-weight: bold;
+}
+
+.searchContainer {
+    text-align: center;
 }
