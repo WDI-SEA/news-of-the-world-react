@@ -11,10 +11,9 @@ import '../styling/style.css';
 // rather than as a default
 // refer to index.js at src root to see how import works
 export const App = () => {
-
-
-
-    const [content, setContent] = useState([])
+    const [content, setContent] = useState([]);
+    const [searchResults, setSearchResults] = useState([]);
+    const [query, setQuery] = useState('');
 
     var url = (`http://newsapi.org/v2/top-headlines?`+`country=us&`+`apiKey=${process.env.REACT_APP_API_KEY}`)
     
@@ -26,13 +25,15 @@ export const App = () => {
         })
     }, [])
 
-
-
+    const dynamicSearch = e => {
+        setQuery(e.target.value);
+    }
+console.log(query)
     return (
         // Router for setting routes
         <Router>
             <div className='app'>
-                <Landing />
+                <Landing search={dynamicSearch}/>
                 <Display content={content}/>
             </div>
         </Router>

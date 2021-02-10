@@ -24,7 +24,6 @@ console.log(props.content)
     return (
         <div>
             {title}
-            
         </div>
     )
 };
