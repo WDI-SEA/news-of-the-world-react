@@ -45,7 +45,9 @@ export const App = () => {
         // Router for setting routes
         <Router>
             <div className='app'>
-                <h1>ChillBoi News</h1>
+                <div className="headerContainer">
+                    <h1>ChillBoi News</h1>
+                </div>
                 <Route exact path="/" render={() => <Landing handleChange={handleChange} handleSubmit={handleSubmit} results={results} />} />
                 <Route path="/details/:id" render={(props) => <Display {...props} article={data.hits[props.match.params.id]} />} />
             </div>

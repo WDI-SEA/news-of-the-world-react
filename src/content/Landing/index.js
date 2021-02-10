@@ -1,11 +1,11 @@
 import React from 'react';
 
-export const Landing = props => {
+export const Landing = (props) => {
     return (
         <div>
-                <label htmlFor="search">Enter a Search Term!</label>
-                <input type="text" name="search" onChange={props.handleChange} value={props.search} />
-                <input type="submit" onClick={props.handleSubmit} />
+            <form onSubmit={props.handleSubmit}>
+                <input type="text" name="search" className="searchBar" placeholder='SEARCH' onChange={props.handleChange} value={props.search} />
+            </form>
                 {props.results}
         </div>
     )

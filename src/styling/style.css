@@ -3,10 +3,17 @@
 .app {
     width: 100%;
     height: 100%;
+    font-family: 'Avenir Black';
+}
+
+.headerContainer {
+    text-align: justify;
 }
 
 h1{
     text-align: center;
+    width:100%;
+    height:1em;
 }
 
 .linktopia {
@@ -22,4 +29,12 @@ h1{
 
 .artImage {
     width: 77vw;
+}
+
+.searchBar {
+    width: 100vw;
+    height: 5vh;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
 }
