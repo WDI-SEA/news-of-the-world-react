@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { Display } from './Display';
 import { Landing } from './Landing';
+import { Search } from './Landing/Search'
 
 import '../styling/style.css';
 
@@ -18,24 +19,50 @@ import ArticleData from './ArticleData'
 const API = process.env.REACT_APP_API_KEY
 
 export const App = () => {
-    const [articles, setArticles] = useState(ArticleData)
-    
-    // useEffect(() =>{
-    //     fetch('http://newsapi.org/v2/top-headlines?country=us&apiKey=d3bd5a63f2a046bb809d9496d222491c')
-    //     .then(response => response.json())
-    //     .then(jsonData =>{
-    //         console.log(jsonData)
-    //         setArticles(jsonData.articles)            
-    //     })
-    // }, [])
-    
+    const [articles, setArticles] = useState()
+    const [faves, setFaves] = useState()
+    const [query, setQuery] = useState('')
 
+    const searchUsArticle =(e) =>{
+        e.preventDefault()
+        console.log('Searching US articles')
+        fetch('http://newsapi.org/v2/top-headlines?country=us&apiKey=' + API)
+        .then(response => response.json())
+        .then(jsonData =>{
+            console.log(jsonData)
+            setArticles(jsonData.articles)            
+        })
+    }
+
+    const searchQuery = (e) =>{
+        e.preventDefault()
+        console.log('searching based off of query')
+
+        console.log(e.target.id)
+        fetch('http://newsapi.org/v2/everything?q=' + query + '&apiKey='+ API)
+        .then(response => response.json())
+        .then(jsonData =>{
+            console.log(jsonData)
+            setArticles(jsonData.articles)            
+        })
+    }
+    const setSearchTerm = (e) =>{
+        setQuery(e.target.value);
+    }
+    
+    const saveToFavorites = (e) =>{
+        e.preventDefault()
+        //console.log(e.target.name)
+        setFaves(e.target.name)
+        e.target.value = 'Article saved to faves!'
+    }
+    console.log(articles)
     return (
         // Router for setting routes
         <Router>
             <div className='app'>
-            <Route path='/' render ={() => <Landing />} />
-                <Display articles={articles}/>
+            <Route path='/' render ={() => <Landing searchUsArticle={searchUsArticle} searchQuery={searchQuery} query={query} setSearchTerm={setSearchTerm}/>} />
+                <Display articles={articles} saveToFavorites={saveToFavorites}/>
             </div>
         </Router>
     )

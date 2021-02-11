@@ -4,6 +4,8 @@
     width: 600px;
     height: 100%;
     margin: 0 auto;
+    text-align: center;
+    word-wrap: break-word;
 }
 
 .display{
@@ -20,11 +22,13 @@
     width: 30%;
     -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+    border-radius: 5px;
+    padding-bottom: 16px;
 }
 
 .display-article:hover{
     cursor: pointer;
-    width: 33%
+    width: 30.5%
 }
 
 .display-article >img{
@@ -35,6 +39,7 @@
     padding-left: 8px;
     padding-right: 8px;
     font-size: smaller;
+    text-align: left;
 }
 
 @media only screen and (max-width: 599px){

@@ -1,9 +1,10 @@
 import React from 'react';
+import { Search } from './Search'
 
 export const Landing = props => {
     return (
         <div>
-            <h1>LANDING INDEX.js</h1>
+            <Search searchUsArticle={props.searchUsArticle} searchQuery={props.searchQuery} query={props.query} setSearchTerm={props.setSearchTerm}/>
         </div>
     )
 };
