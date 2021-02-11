@@ -1,9 +1,13 @@
 import React from 'react'
 
-function Archive() {
+function Archive(props) {
     return(
         <div>
-            <h1>Archive</h1>
+            <h1>Archived Stories</h1>
+            {props.archive.map((article, i) => {
+                return <h1>{article.title}</h1>
+
+            })}
         </div>
     )
 }

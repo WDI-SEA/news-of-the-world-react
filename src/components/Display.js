@@ -8,6 +8,7 @@ function Display(props) {
             <p>{props.article.publishedAt}</p>
             <p>{props.article.description}</p>
             <p>Read full story: <a href={props.article.url}>{props.article.url}</a></p>
+            <button onClick={() => props.addToArchive(props.article)}>Archive</button>
         </div>
     )
 }

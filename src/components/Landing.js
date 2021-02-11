@@ -6,7 +6,7 @@ function Landing(props) {
         <div>
             {props.articles.map((article, i) => {
                 return (
-                    <Display key={i} article={article} />
+                    <Display key={i} article={article} addToArchive={props.addToArchive} />
                 )
             })}
         </div>
