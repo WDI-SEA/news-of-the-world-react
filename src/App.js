@@ -5,6 +5,7 @@ import {
   Route
 } from 'react-router-dom'
 import Header from './partials/Header'
+import Archive from './components/Archive'
 
 function App() {
 
@@ -28,7 +29,8 @@ function App() {
     <Router>
       <div>
         <Header />
-        <Route path="/" render={() => <Landing articles={articles} />} />
+        <Route exact path="/" render={() => <Landing articles={articles} />} />
+        <Route path="/archive" component={Archive} />
       </div>
     </Router>
   )
