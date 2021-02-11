@@ -1,12 +1,17 @@
 import React from 'react';
+import Article from './article.js'
 
 export const Display = props => {
 
-    let content = props.data ? '' : 'Ruh-Roh! API or props fail!';
+    let articles = props.data.map(article => {
+        return (
+            < Article article={article} />
+        )
+    })
 
     return (
         <div>
-            <p>{content}</p>
+            {articles}
         </div>
     )
 };
