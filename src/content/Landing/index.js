@@ -2,6 +2,8 @@ import React from 'react';
 
 export const Landing = props => {
     return (
-        <div></div>
+        <div>
+            <h1>LANDING INDEX.js</h1>
+        </div>
     )
 };
