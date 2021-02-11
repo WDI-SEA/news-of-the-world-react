@@ -14,27 +14,47 @@ export const App = () => {
     const [content, setContent] = useState([]);
     const [searchResults, setSearchResults] = useState([]);
     const [query, setQuery] = useState('');
+    let title;
+    var url = (`http://newsapi.org/v2/top-headlines?` + `country=us&` + `apiKey=${process.env.REACT_APP_API_KEY}`);
 
-    var url = (`http://newsapi.org/v2/top-headlines?`+`country=us&`+`apiKey=${process.env.REACT_APP_API_KEY}`)
-    
 
     useEffect(() => {
         axios.get(url)
-        .then(res => {
-            setContent(res.data)
-        })
-    }, [])
+            .then(res => {
+                setContent(Object.values(res.data))
+            })
+    }, []);
+
+
 
     const dynamicSearch = e => {
         setQuery(e.target.value);
+        let filtered = content[2].filter(article => {
+            return article.title.toLowerCase().includes(e.target.value.toLowerCase());
+        })
+        setSearchResults(filtered)
     }
-console.log(query)
+    console.log(content)
+    console.log(query)
+    console.log(searchResults)
+
+    if (content.length != 0) {
+        title = searchResults.map((article, i) => {
+            return (
+                <Display
+                    key={i}
+                    article={article}
+                />
+            )
+        })
+    }
+
     return (
-        // Router for setting routes
+
         <Router>
             <div className='app'>
-                <Landing search={dynamicSearch}/>
-                <Display content={content}/>
+                <Landing search={dynamicSearch} />
+                {title}
             </div>
         </Router>
     )

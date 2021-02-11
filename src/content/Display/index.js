@@ -5,25 +5,18 @@ import { Link } from 'react-router-dom';
 export const Display = props => {
 
     let content = props.content ? '' : 'Ruh-Roh! API or props fail!';
-   console.log(props.content)
-    let title 
-    if (props.content.length != 0) {
-        title = props.content.articles.map((article, i) => {
-        return (<li key={i}>
-                    <a href={article.url}><img src={article.urlToImage}/></a>
-                        
-                    <br></br>
-                    <h4>{article.author}</h4>
-                    <br></br>
-                    <h6>{article.publishedAt}</h6>
-                 </li>
-        )
-    } )
-}
-console.log(props.content)
+   console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%', props.article)
     return (
         <div>
-            {title}
+            <li key={props.i}>
+                <a href={props.article.url}><img src={props.article.urlToImage}/></a>
+                    
+                <br></br>
+                <h3>{props.article.title}</h3>
+                <h4>{props.article.author}</h4>
+                <br></br>
+                <h6>{props.article.publishedAt}</h6>
+            </li>
         </div>
     )
 };
