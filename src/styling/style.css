@@ -1,5 +1,7 @@
 /* you can style everything inside here, but best practice */
 /* is to separate styling by component or by related components */
+
+
 .app {
     width: 100%;
     height: 100%;
@@ -8,4 +10,54 @@
 img {
     height: 20vh;
     width: 30vw;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+    width: 100%;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media only screen and (min-width: 600px) {
+    body {
+        background-color: blue;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+ 
+    .articles {
+        width: 30%;
+        margin: 0 auto;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: red;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%
+     }
+
+     .articles {
+        width: 70%;
+        margin: 0 auto;
+     }
 }

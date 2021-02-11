@@ -30,13 +30,11 @@ export const App = () => {
     const dynamicSearch = e => {
         setQuery(e.target.value);
         let filtered = content[2].filter(article => {
+  
             return article.title.toLowerCase().includes(e.target.value.toLowerCase());
         })
         setSearchResults(filtered)
     }
-    console.log(content)
-    console.log(query)
-    console.log(searchResults)
 
     if (content.length != 0) {
         title = searchResults.map((article, i) => {
@@ -52,9 +50,11 @@ export const App = () => {
     return (
 
         <Router>
-            <div className='app'>
+            <div>
                 <Landing search={dynamicSearch} />
-                {title}
+                <ul>
+                    {title}
+                </ul>
             </div>
         </Router>
     )

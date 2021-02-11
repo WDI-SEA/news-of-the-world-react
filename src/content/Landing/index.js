@@ -4,13 +4,12 @@ export const Landing = props => {
     console.log(props.search)
     return (
         <div>
-            <h1>Searchbar goes here</h1>
+            <h1>News Of The World</h1>
+            <h2>Your Place For Top Stories</h2>
             <input
                 placeholder="Search for articles"
                 onChange={props.search}
             />
-
-            
         </div>
     )
     
