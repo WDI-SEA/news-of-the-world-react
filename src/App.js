@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Landing from './components/Landing'
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
+import Header from './partials/Header'
 
 function App() {
 
@@ -14,15 +19,18 @@ function App() {
         // console.log(resData.articles[0].author)
         setArticles(resData.articles)
     })
-}, [API_KEY])
+}, [])
 
   // console.log(articles[0].author)
   // const articleId = articles[0].source.id
 
   return (
-    <div>
-      <Landing articles={articles}/>
-    </div>
+    <Router>
+      <div>
+        <Header />
+        <Route path="/" render={() => <Landing articles={articles} />} />
+      </div>
+    </Router>
   )
 }
 
