@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 import { Display } from './Display';
 import { Landing } from './Landing';
-import { Search } from './Landing/Search'
 
 import '../styling/style.css';
 
-import ArticleData from './ArticleData'
 
 // export const is quicker but must be imported directly
 // rather than as a default

@@ -1,12 +1,16 @@
 /* you can style everything inside here, but best practice */
 /* is to separate styling by component or by related components */
+body{
+}
 .app {
     width: 600px;
     height: 100%;
     margin: 0 auto;
     text-align: center;
     word-wrap: break-word;
+    height: 100vh;
 }
+
 
 .display{
     width: 100%;
@@ -42,8 +46,23 @@
     text-align: left;
 }
 
+.search-bar{
+    display: flex;
+    width: 100%;
+    margin: 16px;
+    flex-wrap: wrap;
+}
+
+.search-bar input{
+    margin: 4px;
+}
+
 @media only screen and (max-width: 599px){
     .display-article{
         width: 100%;
+    }
+
+    .search-bar{
+        display: block;
     }
 }

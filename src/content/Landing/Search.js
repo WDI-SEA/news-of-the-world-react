@@ -2,7 +2,7 @@
 
 export const Search = (props) => {
     return (
-        <div>
+        <div className="search-bar">
             <input type="submit" value="Give me top headlines in the United States" onClick={props.searchUsArticle} />
             <form>
                 <input type="text" placeholder="Search" name="search" onChange={props.setSearchTerm}/>
