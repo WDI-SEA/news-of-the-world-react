@@ -5,7 +5,7 @@ function Header() {
     return(
         <header>
             <Link to="/">Latest Stories</Link>{' | '}
-            <Link to="/archive">Archived Stores</Link>
+            <Link to="/archive">Archived Stories</Link>
         </header>
     )
 }
