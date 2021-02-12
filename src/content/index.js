@@ -44,7 +44,7 @@ export const Index = (props) => {
     
     const submitSearch = () => {
         console.log('Submitting')
-        axios.get(`https://newsapi.org/v2/top-headlines?country=${country}&q=${search}&apiKey=${process.env.REACT_APP_API_KEY}`)
+        axios.get(`https://newsapi.org/v2/everything?q=${search}&apiKey=${process.env.REACT_APP_API_KEY}`)
         .then(res => {
             let resData = res.data.articles
             setData(resData)
@@ -55,11 +55,14 @@ export const Index = (props) => {
         // Router for setting routes 
         <Router>
             <div className='app'>
-                <h2>Search for...</h2>
-                <input type='text' onChange={inputSearch} />
-                <input type='submit' onClick={()=>{if (search) {submitSearch()}}} />
-                <Landing />
-                <Display data={data} />
+
+                <div className='search-bar'>
+                    <label>Search for...</label>
+                    <input type='text' onChange={inputSearch} />
+                    <input type='submit' onClick={()=>{if (search) {submitSearch()}}} />
+                </div>
+
+                <Display className='display-div' data={data} />
             </div>
         </Router>
     )

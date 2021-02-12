@@ -1,5 +1,6 @@
 import React from 'react';
 import Article from './article.js'
+import { CardColumns } from 'react-bootstrap'
 
 export const Display = props => {
 
@@ -11,7 +12,9 @@ export const Display = props => {
 
     return (
         <div>
-            {articles}
+            <CardColumns>
+                {articles}
+            </CardColumns>
         </div>
     )
 };

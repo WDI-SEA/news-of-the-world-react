@@ -1,7 +1,11 @@
 import React from 'react';
 
-export const Landing = props => {
+function Landing (props) {
     return (
-        <div></div>
+        <div>
+            <h1>Welcome! Pick a category above</h1>
+        </div>
     )
-};
+}
+
+export default Landing
