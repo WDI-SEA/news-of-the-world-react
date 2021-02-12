@@ -4,3 +4,21 @@
     width: 100%;
     height: 100%;
 }
+.bMenu{
+    display: block;
+
+}
+button{
+    width: 20vw;
+}
+img{
+    width: 10vw;
+    height: 10vw;
+   
+}
+.title{
+    width: 10vw;
+}
+.topNewsHome{
+    display: inline-block;
+}
