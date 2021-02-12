@@ -13,6 +13,7 @@ function App() {
   const API_KEY = process.env.REACT_APP_API_KEY
   const [articles, setArticles] = useState([])
   const [archive, setArchive] = useState([])
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     fetch(url+API_KEY)
@@ -23,16 +24,28 @@ function App() {
   }, [])
 
   const addToArchive = (article) => {
-    setArchive([...archive, article])
+    if(!archive.includes(article)) {
+      setArchive([...archive, article])
+    }
+  }
+
+  const handleChange = (e) => {
+    setSearch(e.target.value)
+  }
+
+  const dynamicSearch = () => {
+    return articles.filter(article => article.title.toLowerCase().includes(search.toLowerCase()))
   }
 
   return (
     <Router>
       <div>
-        <Header />
-        <Route exact path="/" render={() => <Landing articles={articles} addToArchive={addToArchive} />} />
+        <Header /><br></br>
+        <div>
+          <input type="text" placeholder="search for an article" value={search} onChange={handleChange} />
+        </div>
+        <Route exact path="/" render={() => <Landing articles={dynamicSearch()} addToArchive={addToArchive} />} />
         <Route path="/archive" render={() => <Archive archive={archive} /> } />
-        {/* <Route path="/archive" component={Archive} /> */}
       </div>
     </Router>
   )
