@@ -21,20 +21,20 @@ export const App = () => {
     const [search, setSearch] = useState('')
     const [faves, setFaves] = useState([])
     
-    useEffect(() => {
-        fetch('ba54c0691d8f4ec2a582e4a76c415013')
-        .then(response => response.json())
     
-    })
+    // useEffect(() => {
+    //     fetch(`http://newsapi.org/v2/everything?q=Apple&from=2021-02-12&sortBy=popularity&apiKey=ba54c0691d8f4ec2a582e4a76c415013`)
+    //     .then(response => response.json())
+        
+    // })
 
 
     return (
         // Router for setting routes
         <Router>
             <div className='app'>
-                <Landing />
                 <NavBar />
-                <Display />
+                <Landing />
                 <Faves />
             </div>
         </Router>
