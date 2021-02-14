@@ -3,4 +3,13 @@
 .app {
     width: 100%;
     height: 100%;
+    display: flex;
+}
+
+/* For small devices (regular-sized phones) */
+/* https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
+@media only screen and (max-width: 600px) { 
+    img {
+        max-width: 100vw;
+    }
 }

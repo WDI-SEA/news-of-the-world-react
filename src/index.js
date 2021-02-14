@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
 import ReactDOM from 'react-dom';
 import './index.css';
 import { App } from './content';
 import reportWebVitals from './reportWebVitals';
+
 
 ReactDOM.render(
   <React.StrictMode>
