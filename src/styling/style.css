@@ -17,10 +17,31 @@
     margin: 0 auto;
 }
 
+.display-article {
+    width: 70vw; 
+}
+
+/* Have to make image the same width as the parent container. */
+.display img { 
+    width: 70vw;
+}
+
+
+
 /* For small devices (regular-sized phones) */
 /* https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
 @media only screen and (max-width: 600px) { 
-    img {
-        max-width: 100vw;
+    .display {
+        width: 95vw;
+        margin: 0 auto;
+    }
+
+    /* Not sure why I have to include the below. When I don't include it, the header gets bunched up and only takes like 50% of the page. */
+    .display-article {
+        width: 100vw;
+    }
+
+    .display img {
+        width: 95vw;
     }
 }

@@ -18,7 +18,8 @@ export const App = () => {
     const [searchTerm, setSearchTerm] = useState("")
 
     useEffect( () => {
-        fetch(`http://newsapi.org/v2/everything?q=${searchTerm}domains=wsj.com&pageSize=5&apiKey=${process.env.REACT_APP_API_KEY}`)
+        // q=${searchTerm}
+        fetch(`http://newsapi.org/v2/everything?domains=wsj.com&pageSize=5&apiKey=${process.env.REACT_APP_API_KEY}`)
         .then(response => response.json())
         .then(responseData => {
             // responseData = Object.values(rData) // Converts object of objects to array of objects.
@@ -37,7 +38,7 @@ export const App = () => {
         // Router for setting routes
         <Router>
             <div className='app'>
-                <Landing />
+                {/* <Landing /> */}
                 <Display articles={articles}/>
             </div>
         </Router>

@@ -2,10 +2,10 @@ import React from 'react';
 
 export const Display = props => {
     let listArticles = props.articles.map( (article, i) => (
-        <div style={{width: '70vw'}}>
+        <div className='display-article'>
 
             <h2>{article.title}</h2>
-            <img src={article.urlToImage} style={{width: '70vw'}} />
+            <img src={article.urlToImage} />
             <h4>{article.author ? `Written by ${article.author}` : ""}</h4>
             <div>
                 Published: {article.publishedAt}
