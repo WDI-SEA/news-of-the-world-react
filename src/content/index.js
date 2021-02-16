@@ -21,7 +21,7 @@ export const App = () => {
 
     useEffect(() => {
         document.title = "Newts"
-        fetch(`http://newsapi.org/v2/everything?q=${toApi}&from=2021-01-10&sortBy=publishedAt&apiKey=${process.env.REACT_APP_API_KEY}`)
+        fetch(`http://newsapi.org/v2/everything?q=${toApi}&from=2021-02-10&sortBy=publishedAt&apiKey=${process.env.REACT_APP_API_KEY}`)
         .then(response => response.json())
         .then(rdata => {
             setData({hits: rdata.articles})
@@ -33,14 +33,6 @@ export const App = () => {
         setApi(search)
     }
 
-    const results = data.hits.map((article, i) => {
-            return (
-                <div key={`key is ${i}`} className="linktopia">
-                    <Link to={`/details/${i}`}><p>{article.title}</p></Link>
-                </div>
-            ) 
-    })
-
     return (
         // Router for setting routes
         <Router>
@@ -48,7 +40,7 @@ export const App = () => {
                 <div className="headerContainer">
                     <h1>ChillBoi News</h1>
                 </div>
-                <Route exact path="/" render={() => <Landing handleChange={handleChange} handleSubmit={handleSubmit} results={results} />} />
+                <Route exact path="/" render={() => <Landing handleChange={handleChange} handleSubmit={handleSubmit} results={data.hits} />} />
                 <Route path="/details/:id" render={(props) => <Display {...props} article={data.hits[props.match.params.id]} />} />
             </div>
         </Router>
