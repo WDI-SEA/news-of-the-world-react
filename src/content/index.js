@@ -21,7 +21,7 @@ export const App = () => {
             console.log(rdata)
             // rdata = Object.values(rdata) 
             console.log(rdata)
-            setNews(rdata)
+            setNews(rdata.data.articles)
             
           })
         }, [])

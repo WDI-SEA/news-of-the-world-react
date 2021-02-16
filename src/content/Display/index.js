@@ -6,8 +6,13 @@ export const Display = props => {
 
     return (
         <div>
-            <h1>Hi</h1>
-            <p>{content}</p>
+      {props.news.map((stories, i) => {
+                    return(
+                        <div>
+                            <h3><a href={stories.url}>{stories.title}</a></h3>
+                        </div>
+                    )
+                })}
         </div>
     )
 };
