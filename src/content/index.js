@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import { Header } from './Header';
 import { Display } from './Display';
 import { Landing } from './Landing';
 
@@ -17,6 +18,7 @@ export const App = () => {
     const [articles, setArticles] = useState([])
     const [tempSearchTerm, setTempSearchTerm] = useState('')
     const [searchTerm, setSearchTerm] = useState('')
+    const [favorites, setFavorites] = useState([])
 
     useEffect( () => {
         // q=${searchTerm}
@@ -48,8 +50,9 @@ export const App = () => {
         // Router for setting routes
         <Router>
             <div className='app'>
-                {/* <Landing /> */}
-                <Landing updateSearchTerm={updateSearchTerm} updateSearchResults={updateSearchResults} />
+                <Header />
+                <hr />
+                <Route exact path="/" render={ () => <Landing updateSearchTerm={updateSearchTerm} updateSearchResults={updateSearchResults} articles={articles}/>} />
                 <Display articles={articles} />
             </div>
         </Router>

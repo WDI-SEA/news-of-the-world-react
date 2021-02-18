@@ -9,13 +9,19 @@
     margin: 0 auto;
     /* margin-left: 12%;
     margin-right: 8%; */
+}
 
+.nav {
+    margin: 15px auto;
 }
 
 .search {
     height: 10%;
     display: block;
     margin: 0 auto;
+
+    display: flex;
+    align-items: center;
 }
 
 .display {
