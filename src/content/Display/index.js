@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Display = props => {
     let listArticles = props.articles.map( (article, i) => (
-        <div className='display-article'>
+        <div className='display-article' key={i}>
 
             <h2>{article.title}</h2>
             <img src={article.urlToImage} />

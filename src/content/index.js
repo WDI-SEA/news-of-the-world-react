@@ -15,11 +15,12 @@ require('dotenv').config()
 export const App = () => {
 
     const [articles, setArticles] = useState([])
-    const [searchTerm, setSearchTerm] = useState("")
+    const [tempSearchTerm, setTempSearchTerm] = useState('')
+    const [searchTerm, setSearchTerm] = useState('')
 
     useEffect( () => {
         // q=${searchTerm}
-        fetch(`http://newsapi.org/v2/everything?domains=wsj.com&pageSize=5&apiKey=${process.env.REACT_APP_API_KEY}`)
+        fetch(`http://newsapi.org/v2/everything?q=${searchTerm}&domains=wsj.com&pageSize=100&apiKey=${process.env.REACT_APP_API_KEY}`)
         .then(response => response.json())
         .then(responseData => {
             // responseData = Object.values(rData) // Converts object of objects to array of objects.
@@ -32,15 +33,25 @@ export const App = () => {
             console.log(responseData.articles)
             setArticles(responseData.articles)
         })
-    }, [])
+    }, [searchTerm])
+
+    const updateSearchTerm = (e) => {
+        console.log("😎 Updating search term!!!")
+        setTempSearchTerm(e.target.value)
+    }
+
+    const updateSearchResults = () => {
+        setSearchTerm(tempSearchTerm)
+    }
 
     return (
         // Router for setting routes
         <Router>
             <div className='app'>
                 {/* <Landing /> */}
-                <Display articles={articles}/>
+                <Landing updateSearchTerm={updateSearchTerm} updateSearchResults={updateSearchResults} />
+                <Display articles={articles} />
             </div>
         </Router>
     )
-};
+}
