@@ -60,7 +60,7 @@ There are multiple ways to go about this. If you're struggling to implement, thi
 #### Part 5: Fully Responsive
 If you've gotten this far, good job! You have one last task remaining: to make your app fully responsive.
 
-At this point, consider how you can change your layout and components. As always, [CSS Tricks](https://css-tricks.com/) is your friend, so if you're struggling, check out some of the resouces they have.
+At this point, consider how you can change your layout and components. As always, [CSS Tricks](https://css-tricks.com/) is your friend, so if you're struggling, check out some of the resouces they have. If you are struggling on how to incorporate css into your React app, don't fret! There are [so many ways](https://codeburst.io/4-four-ways-to-style-react-components-ac6f323da822) to use css in React.
 
 <details>
 <summary>Hint</summary>
