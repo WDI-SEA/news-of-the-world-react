@@ -42,7 +42,7 @@ function App(){
                 </div>
                 <Routes>
                     <Route path="/" element={<Landing handleChange={handleChange} handleSubmit={handleSubmit} results={data.hits} />} />
-                    <Route path="/details/:id" element={(props) => <Display {...props} article={data.hits[props.match.params.id]} />} />
+                    <Route path="/details/:id" element={<Display articles={data.hits} />} />
                 </Routes>
             </div>
         </BrowserRouter>

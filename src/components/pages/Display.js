@@ -1,11 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import { useParams } from 'react-router';
 
 function Display(props){
-
-    let content = props.article ? props.article : 'Ruh-Roh! API or props fail!';
-
-
+    let params = useParams();
+    let content = props.articles ? props.articles[params.id] : 'Ruh-Roh! API or props fail!';
     return (
         <div>
             <h1>{content.title}</h1>
