@@ -4,7 +4,10 @@
 -    Head over to the [News API](https://newsapi.org/) site and generate a free API key
 
 ## The Task
-Your task, whether you accept it or not, is to create a fairly basic news application which will, at its most basic, allow users to receive and store (in state) articles which they can read later.
+| URL Pattern | Description |
+| ----------- | ----------- |
+| /      | Landing page shows all recent news articles, or a filtered list based on what the user searches      |
+| /articles/:id   | Displays all info about the article with the api id as indicated in the url params       |
 
 You have been given a barebones React App from which to work, meaning you will have to complete and style existing components, create additional components, as required, and add routes to your application using `react router dom`, in addition to getting and storing API data.
 
