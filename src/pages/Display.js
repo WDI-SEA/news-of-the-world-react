@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
-export const Display = props => {
+function Display(props){
 
     let content = props.article ? props.article : 'Ruh-Roh! API or props fail!';
 
@@ -20,4 +20,6 @@ export const Display = props => {
             </div>
         </div>
     )
-};
+}
+
+export default Display

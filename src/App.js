@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-import { Display } from './Display';
-import { Landing } from './Landing';
+import Display from './pages/Display';
+import Landing from './pages/Landing';
 
-import '../styling/style.css';
+import './styling/style.css';
 
 // export const is quicker but must be imported directly
 // rather than as a default
@@ -21,7 +21,7 @@ export const App = () => {
 
     useEffect(() => {
         document.title = "Newts"
-        fetch(`http://newsapi.org/v2/everything?q=${toApi}&from=2021-02-10&sortBy=publishedAt&apiKey=${process.env.REACT_APP_API_KEY}`)
+        fetch(`https://newsapi.org/v2/everything?q=${toApi}&from=2021-11-10&sortBy=publishedAt&apiKey=b7b980d172604ddc9fe16b536f28f23f`)
         .then(response => response.json())
         .then(rdata => {
             setData({hits: rdata.articles})
@@ -35,14 +35,16 @@ export const App = () => {
 
     return (
         // Router for setting routes
-        <Router>
+        <BrowserRouter>
             <div className='app'>
                 <div className="headerContainer">
                     <h1>ChillBoi News</h1>
                 </div>
-                <Route exact path="/" render={() => <Landing handleChange={handleChange} handleSubmit={handleSubmit} results={data.hits} />} />
-                <Route path="/details/:id" render={(props) => <Display {...props} article={data.hits[props.match.params.id]} />} />
+                <Routes>
+                    <Route path="/" element={<Landing handleChange={handleChange} handleSubmit={handleSubmit} results={data.hits} />} />
+                    <Route path="/details/:id" element={(props) => <Display {...props} article={data.hits[props.match.params.id]} />} />
+                </Routes>
             </div>
-        </Router>
+        </BrowserRouter>
     )
 };

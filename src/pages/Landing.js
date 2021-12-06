@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-export const Landing = (props) => {
+function Landing(props){
 
     const results = props.results.map((article, i) => {
         return (
@@ -19,4 +19,6 @@ export const Landing = (props) => {
                 {results}
         </div>
     )
-};
+}
+
+export default Landing
