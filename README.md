@@ -29,24 +29,15 @@ While these offer a starting point, you may want to consider the universal layou
 Consider endpoints of the NewsAPI when making your decision. In addition to thinking about the data you'll receive back, what edge cases might you encounter and how might you combat these.
 </details>
 
-#### Part 3: State
-Handling state is, in this case, entirely your choice, however the way in which data is passed throughout an application is important.
-
-While accomplishing the task at hand is of importance, consider the ways in which you might "future proof" your app, should you choose to expand upon this completed v1.
-
-<details>
-<summary>Hint</summary>
-<br>
-What if we decided to add back end functionality to the application.
-</details>
-
-#### Part 4: Search
+#### Part 3: Search
 As much as it's a pain, a one size fits all approach doesn't generally fit users, especially something that can be as personal as what news they wish to read about.
 
 With that in mind, create a search feature which queries your API based on user input.
 
 There are multiple ways to go about this. If you're struggling to implement, think about limiting potential user input to guarantee they return specific endpoints. Or, have
 </details>
+
+#### Part 4: Favorites (tbd)
 
 #### Bonus: Fully Responsive
 If you've gotten this far, good job! You have one last task remaining: to make your app fully responsive.
