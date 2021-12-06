@@ -3,11 +3,6 @@
 -    Fork and clone this repo
 -    Head over to the [News API](https://newsapi.org/) site and generate a free API key
 
-## Overview
-The changing landscape of how the general public navigates the internet has brought with it some interesting challenges that we, as developers, need to consider during the development process.
-
-One such example of this is how prevalent the concept of "mobile-first" has become in recent years. Since mobile devices have, for many, become the weapon of choice when it comes to their daily blast of internet, it's important that we identify this during development to offer the most seamless browsing experience possible.
-
 ## The Task
 Your task, whether you accept it or not, is to create a fairly basic news application which will, at its most basic, allow users to receive and store (in state) articles which they can read later.
 
