@@ -15,7 +15,7 @@ function Landing(props) {
     const allFaves = props.faves.map((f, i) => {
         return (
             <li key={i}>
-                <h3>{f.title}</h3>
+                <h3><Link to = {`/display/${i}`}>{f.title}</Link></h3>
             </li>
         )
     })
