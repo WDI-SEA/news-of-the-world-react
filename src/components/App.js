@@ -3,6 +3,7 @@ import '../App.css';
 
 import Display from './pages/Display';
 import Landing from './pages/Landing';
+import Article from './pages/Article';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/article/:id" element={<Article />} />
           <Route path="/display" element={<Display />} />
         </Routes>
       </main>
