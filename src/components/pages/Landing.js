@@ -17,8 +17,8 @@ function Landing() {
     }, [searchTerm])
 
     // const handleChange = (e) => {
-        //     setSearchTerm(e.target.value)
-        // }
+    //     setSearchTerm(e.target.value)
+    // }
         
         const handleSubmit = (e) => {
             e.preventDefault()
