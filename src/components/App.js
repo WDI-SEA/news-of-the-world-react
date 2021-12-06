@@ -4,13 +4,13 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Display from './pages/Display';
 import Landing from './pages/Landing';
 
-import './styling/style.css';
+import '../styling/style.css';
 
 // export const is quicker but must be imported directly
 // rather than as a default
 // refer to index.js at src root to see how import works
 
-export const App = () => {
+function App(){
     const [search, setSearch] = useState('')
     const [toApi, setApi] = useState('business')
     const [data, setData] = useState({hits: []})
@@ -47,4 +47,6 @@ export const App = () => {
             </div>
         </BrowserRouter>
     )
-};
+}
+
+export default App
