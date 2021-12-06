@@ -13,10 +13,6 @@ Your task, whether you accept it or not, is to create a fairly basic news applic
 
 You have been given a barebones React App from which to work, meaning you will have to complete and style existing components, create additional components, as required, and add routes to your application using `react router dom`, in addition to getting and storing API data.
 
-You should consider **mobile first** development throughout. For all you pixel lovers out there, you may want to reconsider your choice of sizing increment to make life significantly easier.
-
-If you want to see how your app will look on mobile, Chrome developer tools enables you to see this by clicking the cell/tablet icon in the top left of the window.
-
 #### Part 1: The API
 With your freshly minted API key in hand, it's time to see what data you get back from the API. 
 
@@ -51,10 +47,7 @@ As much as it's a pain, a one size fits all approach doesn't generally fit users
 
 With that in mind, create a search feature which queries your API based on user input.
 
-<details>
-<summary>Hint</summary>
-<br>
-There are multiple ways to go about this. If you're struggling to implement, think about limiting potential user input to guarantee they return specific endpoints.
+There are multiple ways to go about this. If you're struggling to implement, think about limiting potential user input to guarantee they return specific endpoints. Or, have
 </details>
 
 #### Bonus: Fully Responsive
