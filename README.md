@@ -34,7 +34,7 @@ As much as it's a pain, a one size fits all approach doesn't generally fit users
 
 With that in mind, create a search feature which queries your API based on user input.
 
-There are multiple ways to go about this. If you're struggling to implement, think about limiting potential user input to guarantee they return specific endpoints. Or, have
+There are multiple ways to go about this. If you're struggling to implement, think about limiting potential user input to guarantee they return specific endpoints. Or, let the user input any text and do the search functionality just like animal crossing!
 
 
 #### Part 4: Favorites
