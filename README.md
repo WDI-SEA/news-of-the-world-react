@@ -25,7 +25,7 @@ Read through the [Get Started](https://newsapi.org/docs/get-started) page in ord
 Although it won't matter too much here, best practice is to protect your API keys from bad actors, so consider this when including your key in your application.
 
 #### Part 2: Components
-You have an `index.js` file in the route of your `App` folder, in addition to `Landing` and `Display` pages. 
+You have an `App.js` file in the root of your `src/components` folder, in addition to `Landing` and `Display` pages in `src/components/pages`. 
 
 While these offer a starting point, you may want to consider the universal layout of the application, in addition to how you want to display your API response. Whatever your choice, you'll need to create additional components and import them to the files in which they are required.
 
