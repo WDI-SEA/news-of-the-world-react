@@ -46,6 +46,10 @@ function App() {
   }
 
   //Helper Methods to get Favorites List
+  const setFavorites = (e) => {
+    // console.log('Im clicking the add to favorites button and this is the event response: ', e.title)
+    setFaves([...faves, e])
+  }
 
   return (
     <div className="App">
@@ -58,13 +62,13 @@ function App() {
           value={search}
           onChange={handleChange}
           />
-          <button >Find Articles</button>
+          <button>Find Articles</button>
         </form>
       </div>
       
       <main>
         <Routes>
-          <Route path="/" element={<Landing articles={articles}/>}/>
+          <Route path="/" element={<Landing articles={articles} faves={faves} onClick={setFavorites}/>}/>
           <Route path="/display/:id" element={<Display articles={articles}/>} />
         </Routes>
       </main>
