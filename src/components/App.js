@@ -21,9 +21,9 @@ function App() {
   }, [searchTerm])
 
   
-  const handleChange = (e) => {
-      setSearchTerm(e.target.value)
-  }
+  // const handleChange = (e) => {
+  //     setSearchTerm(e.target.value)
+  // }
   const handleSubmit = (e) => {
       e.preventDefault()
       setSearchTerm(e.target[0].value)
