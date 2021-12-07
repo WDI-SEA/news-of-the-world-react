@@ -12,17 +12,6 @@ function App() {
   const [search, setSearch] = useState('')
   const [faves, setFaves] = useState([])
 
-  // useEffect(()=>{
-  //   // console.log(process.env.APIKEY)
-  //   fetch(`https://newsapi.org/v2/everything?q=english&from=2021-12-06&sortBy=publishedAt&language=en&apiKey=dc00ed2f16da4200b07aff06b17bbf15`)
-  //   .then(data => data.json())
-  //   .then(rdata => {
-  //     console.log(rdata.articles)
-  //     setArticles(rdata.articles)
-    
-  //   } )
-  // },[] )
-
   // helper methods
 
   const handleClick = (a) => {
