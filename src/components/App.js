@@ -32,7 +32,8 @@ function App() {
     })
   }
 
-  const handleClick = (article) => {
+  const addToFave = (article) => {
+    if (faves.indexOf(article) === -1)
     setFaves([...faves, article])
   }  
 
@@ -41,7 +42,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Landing articles={getFilteredArticles()} search={search} handleChange={handleChange} faves={faves} />} />
-          <Route path="/display/:id" element={<Display articles={data.articles} handleClick={handleClick} />} />
+          <Route path="/display/:id" element={<Display articles={data.articles} add={addToFave} />} />
         </Routes>
       </main>
     </div>

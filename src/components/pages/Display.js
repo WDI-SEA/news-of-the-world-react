@@ -12,7 +12,7 @@ function Display(props) {
             <p>{content.content}</p>
             <a href={content.url}>Read More Here!</a>
             <br />
-            <Link to='/' onClick={() => props.handleClick(content)}>Save to favorites</Link>
+            <Link to='/' onClick={() => props.add(content)}>Save to favorites</Link>
             <hr />
             <div>
                 <Link to='/'>Home</Link>
