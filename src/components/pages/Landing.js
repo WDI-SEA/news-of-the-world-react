@@ -5,7 +5,7 @@ import ReadingList from '../partials/ReadingList.js'
 function Landing(props) {
     const titleList = props.articles.map((a,i) => {
        return (
-        <li ><Link to={`/article/:id`} onClick={() => props.handleClick(a)} id={i}>{a.title}</Link> <button onClick={() => props.addFave(a)} id={i}>+Read Later</button></li>
+        <li className="artLi"><Link to={`/article/:id`} onClick={() => props.handleClick(a)} id={i}>{a.title}</Link> <button onClick={() => props.addFave(a)} id={i}>+Read Later</button></li>
         // <li onClick={props.handleClick} id={i}>{a.title}</li>
        )
     })
@@ -24,7 +24,7 @@ function Landing(props) {
                 />
                 <input type="submit" value="Search" />
             </form>
-            <ul>
+            <ul className="artList">
               {titleList}
             </ul>
         </>

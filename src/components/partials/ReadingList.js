@@ -3,7 +3,7 @@ function ReadingList (props) {
     console.log('Reading Faves: ', props.faves)
     let faveList = props.faves.map((a, i) => {
         return (
-            <li >
+            <li className="artLi">
                 <Link to={`/article/:id`} onClick={()=>props.handleClick(a)} id={i}>{a.title}</Link>
             </li>
         )
@@ -11,7 +11,7 @@ function ReadingList (props) {
     return (
         <div id="readingList">
             <h3>Reading List</h3>
-            <ul>
+            <ul className="artList">
                 {faveList}
             </ul>
         </div>
