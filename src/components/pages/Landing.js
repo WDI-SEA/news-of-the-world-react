@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom"
 import React from 'react'
+import '../../App.css'
 
 
 function Landing(props) {
     const allNews = props.articlesToDisplay.map((a, i) => {
         return (
             <li>
-                <div>
-                    <Link to={`/display/${i}`}>{a.title}</Link>
+                <div className="resultsContainer">
+                    <div>
+                        <Link to={`/display/${i}`}>{a.title}</Link>
+                    </div>
                 </div>
             </li>
         )
@@ -24,6 +27,7 @@ function Landing(props) {
         <div>
             <div className="searchContainer">
                 <label htmlFor="articleSearch">Search for an article</label>
+                <br />
                 <input 
                     type="text"
                     id="articleSearch"

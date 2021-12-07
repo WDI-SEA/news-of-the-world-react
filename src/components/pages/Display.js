@@ -10,6 +10,7 @@ function Display(props) {
             <h1>{content.title}</h1>
             <h2>{content.content}</h2>
             <a href={content.url}>Read more!</a>
+            <br />
             <Link to='/' onClick={() => props.handleClick(content)}>Save this article!</Link>
             <div>
                 <Link to='/'>Home</Link>

@@ -43,17 +43,19 @@ function App() {
 
   return (
     <div className="App">
-      <main>
-        <Routes>
-          <Route path="/" element={<Landing 
-            articlesToDisplay = {getFilteredArticles()} 
-            search={search}
-            handleChange={handleChange}
-            faves={faves}
-          />} />
-          <Route path="/display/:id" element={<Display articles={news.articles} handleClick={handleClick} />} />
-        </Routes>
-      </main>
+      <div className="App-header">
+        <main>
+          <Routes>
+            <Route path="/" element={<Landing 
+              articlesToDisplay = {getFilteredArticles()} 
+              search={search}
+              handleChange={handleChange}
+              faves={faves}
+            />} />
+            <Route path="/display/:id" element={<Display articles={news.articles} handleClick={handleClick} />} />
+          </Routes>
+        </main>
+      </div>
     </div>
   );
 }
