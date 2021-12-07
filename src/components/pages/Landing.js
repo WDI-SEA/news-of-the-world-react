@@ -6,21 +6,13 @@ import '../../App.css'
 function Landing(props) {
     const allNews = props.articlesToDisplay.map((a, i) => {
         return (
-            <li>
-                <div className="resultsContainer">
-                    <div>
-                        <Link to={`/display/${i}`}>{a.title}</Link>
-                    </div>
-                </div>
-            </li>
+                <Link to={`/display/${i}`}>{a.title}</Link>      
         )
     })
 
     const allFaves = props.faves.map((f, i) => {
         return (
-            <li key={i}>
-                <h3><Link to={`/display/${i}`}>{f.title}</Link></h3>
-            </li>
+            <h3><Link to={`/display/${i}`}>{f.title}</Link></h3>
         )
     })
     return(

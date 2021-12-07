@@ -13,11 +13,23 @@
   color: white;
 }
 
-a {
-  color: whitesmoke;
+
+
+.listContainer {
+  display: grid; 
+  grid-template-columns: 5r 5fr 5fr 5fr 5fr; 
+  grid-template-rows: 2fr 2fr 2fr 2fr 2fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". . . . ."
+    ". . . . ."
+    ". . . . ."
+    ". . . . ."; 
+  
 }
 
-.resultsContainer {
-  margin-bottom: 25px;
-  
+a {
+  color: whitesmoke;
+  grid-area: ".";
+  border: 10px solid yellow;
 }
