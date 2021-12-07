@@ -1,5 +1,27 @@
 .App {
   text-align: center;
+  font-family: 'Rozha One', serif;
+}
+
+#article-search{
+  background-color: whitesmoke;
+  font-size: 30px;
+  font-family: inherit;
+}
+
+.search-bar{
+  background-color: black;
+  height: 200px;
+  color: whitesmoke;
+  font-family: inherit;
+
+}
+
+main{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  
 }
 
 .landing {
@@ -7,21 +29,36 @@
   align-items: flex-start;
   flex-direction: row;
   justify-content: flex-start;
+  
+}
+
+.header {
+  background-color: black;
+  color: whitesmoke;
+  border-bottom: 2px solid whitesmoke;
+  font-family: 'Rozha One', serif;
 }
 
 .news-container{
   display: flex;
   flex-direction: column;
-  width: auto;
+  width: 600px;
   max-width: 600px;
+  min-width: 600px;
   margin: 20px 50px 10px 10px;
+  padding: 0px 4px;
+  border: 2px solid black;
+  font-family: serif;
 }
 
-.favorites-container{
+.fave-container{
   display: flex;
+  border: 2px solid black;
   flex-direction: column;
-  align-self: flex-end;
-  min-width: 100px;
-  margin: 10px auto;
+  width: auto;
+  max-width: 400px;
+  min-width: 400px;
+  margin: 20px 30px;
   text-align: center;
+  font-family: serif;
 }

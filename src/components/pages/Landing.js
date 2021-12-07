@@ -12,18 +12,12 @@ function Landing(props) {
     return (
         <div className="landing">
             <div className="news-container">
-                <h1>{props.search === "" ? 'Top News' : props.search}</h1>
+                <h1 className="header">{props.search === "" ? 'Top News' : props.search}</h1>
                 <div>
                 {topNews}
                 </div>
-                
             </div>
-            <div className="fave-container">
-                <h1> Favorite </h1>
-                <div>
                 <Favorites faves={props.faves}/>
-                </div>
-            </div>
         </div>
         
     )

@@ -9,9 +9,12 @@ function Favorites(props) {
         </div>
       ))
     return (
-        <div>
-            {allFaves}
-        </div>
+        <div className="fave-container">
+                <h1 className="header"> Favorite </h1>
+                <div>
+                {allFaves}
+                </div>
+            </div>
     )
 }
 

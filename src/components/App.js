@@ -41,13 +41,15 @@ const addFave = (article) => {
     <div className="App">
       <br/>
 
-      <div>
-        <label htmlFor="article-search">Search: </label>
+      <div className="search-bar">
+        <h1>Search the News...</h1>
+        <label htmlFor="article-search"></label>
         <input
           type="text"
           id="article-search"
           value={search}
           onChange={handleChange}
+          placeholder="just start typing"
         />
       </div>
       
