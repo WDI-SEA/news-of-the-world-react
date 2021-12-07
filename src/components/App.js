@@ -89,9 +89,7 @@ function App() {
           <Route path="/display/:id" element={<Display articles={data} />} />
           <Route
             path="/savedarticles"
-            element={
-              <SavedArticles articles={saved} handleRemove={handleRemove} />
-            }
+            element={<SavedArticles articles={saved} />}
           />
         </Routes>
       </main>

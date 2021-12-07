@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Landing(props) {
   const allArticles = props.articles.map((article, index) => {
     return (
-      <div>
+      <div key={index}>
         <h1>
           <Link to={`/display/${index}`}>{article.title}</Link>
         </h1>
@@ -16,4 +16,3 @@ function Landing(props) {
 }
 
 export default Landing;
-
