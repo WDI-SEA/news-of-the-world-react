@@ -52,6 +52,23 @@ function App() {
       });
   };
 
+  const handleSave = (article) => {
+    if (saved.indexOf(article) === -1) {
+      setSaved((prevSaved) => [...saved, article]);
+    }
+  };
+
+  // NOTE: FIGURE OUT HOW TO REMOVE THINGS FROM INDEX:`
+  // const handleRemove = (id) => {
+  //   setSaved((prevSaved) => {
+  //     prevSaved.filter((article, index) => {
+  //      if (article !== -1) {
+  //        return filter;
+  //      }
+  //    });
+  //  });
+  // };
+
   return (
     <div className="App">
       <main>
@@ -62,18 +79,19 @@ function App() {
             path="/"
             element={
               <Landing
-                onChange={handleChange}
-                onSubmit={searchData}
                 articles={data}
                 search={search}
+                handleSave={handleSave}
               />
             }
           />
-
+          {/*NOTE TO SELF: WHEN PASSING THE FUNCTION AS A PROP, NAME IT WHAT YOU REFER TO IT IN THE CHILD COMPONENT. SAVE YOURSELF A TON OF GRIEF! ~GOOD GRIEF~ */}
           <Route path="/display/:id" element={<Display articles={data} />} />
           <Route
             path="/savedarticles"
-            element={<SavedArticles articles={saved} />}
+            element={
+              <SavedArticles articles={saved} handleRemove={handleRemove} />
+            }
           />
         </Routes>
       </main>
