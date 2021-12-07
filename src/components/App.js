@@ -1,16 +1,18 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import "../App.css";
 
 import Display from "./pages/Display";
 import Landing from "./pages/Landing";
-
+import SavedArticles from "./pages/SavedArticles";
 import React, { useEffect, useState } from "react";
+import Header from "./pages/Header";
+import Search from "./pages/Search";
 
 function App() {
   // Setting State for both Landing Page Articles and Search Articles
   const [data, setData] = useState([]); // <- I am eventually returning an Array of Objects
   const [search, setSearch] = useState(""); // <- Input should be a String
-  const [save, setSave] = useState([]);
+  const [saved, setSaved] = useState([]);
 
   // Setting the Initial Fetch API Call for Page Display
   useEffect(() => {
@@ -53,6 +55,8 @@ function App() {
   return (
     <div className="App">
       <main>
+        <Header />
+        <Search onChange={handleChange} onSubmit={searchData} search={search} />
         <Routes>
           <Route
             path="/"
@@ -67,6 +71,10 @@ function App() {
           />
 
           <Route path="/display/:id" element={<Display articles={data} />} />
+          <Route
+            path="/savedarticles"
+            element={<SavedArticles articles={saved} />}
+          />
         </Routes>
       </main>
     </div>
