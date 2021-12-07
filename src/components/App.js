@@ -5,8 +5,6 @@ import Display from './pages/Display';
 import Landing from './pages/Landing';
 
 
-
-
 function App() {
   let[data, setData] = useState([])
   let[search, setSearch] = useState('')

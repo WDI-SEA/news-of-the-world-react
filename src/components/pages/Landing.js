@@ -12,7 +12,7 @@ function Landing(props) {
         const allFaves = props.faves.map((v, index)=>{
             return (
                 <li key={index}>
-                    {v.faves}
+                    {v}
                 </li>
             )
         })
