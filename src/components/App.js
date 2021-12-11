@@ -4,19 +4,21 @@ import '../App.css';
 import Display from './pages/Display';
 import Landing from './pages/Landing';
 import Header from './partials/Header';
+import Fave from './pages/Fave';
 
 function App() {
-
+  //initial state  
   let [data,setData] = useState({articles: []})
   let [search,setSearch] = useState('')
-  let [current,setCurrent] = useState({})
+  let [faves, setFaves] = useState([])
+
 
   useEffect(() => {
     fetch(`https://newsapi.org/v2/everything?q=bitcoin&apiKey=bd7fdb517bd14de5b4122e8290f44011`)
     .then(response => response.json())
     .then(rdata=> {
       setData({articles:rdata.articles})
-    console.log(data)
+    // console.log(data)
   })
     },[])
   
@@ -27,23 +29,19 @@ function App() {
 
   const getFilteredArticles = () => {
     return data.articles.filter(article => {
-      console.log(article);
+      // console.log(article);
       return article.title.toLowerCase().includes(search.toLowerCase())
     })
   }
 
-  const changeCurrent  = article => {
-    setCurrent(article)
+  const handleClick = (article) => {
+    console.log(article);
+    // if(faves.indexOf(article) === -1){
+    //   setFaves(...faves, article )
+    // }
+    setFaves([...faves, article])
+
   }
-
-//   const article = data.articles.map(article => {
-//     return <Display 
-//     article ={article}
-//      key={article._id}
-//      changeCurrent={changeCurrent}
-//      />
-
-// })
 
   return (
     <div className="App">
@@ -60,9 +58,13 @@ function App() {
            />
           <Route path="/display/:id" element={<Display 
               articles={data.articles}
+              handleClick={handleClick}
             />} 
           />
-          <Route path="fave" element = {<Fave />}
+          <Route path="fave" element = {<Fave 
+             
+              faves={faves}
+          />}
           />
 
         </Routes>

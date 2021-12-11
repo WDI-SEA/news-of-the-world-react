@@ -7,6 +7,7 @@ const Header = () => {
             <header>
                 <ul>
                     <li><Link to= "/">Home</Link></li>
+                    <li><Link to = "/fave">favorites</Link></li>
                 </ul>
             </header>
         </div>
