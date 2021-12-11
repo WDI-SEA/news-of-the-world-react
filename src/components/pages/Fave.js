@@ -5,7 +5,7 @@ function Fave(props) {
     const allFaves = props.faves.map((a, i) => {
         return (
             <li key={i}>
-                <h2><Link to={`/display/${i}`}>{a.title}</Link></h2>
+                <h5><Link to={`/display/${i}`}>{a.title}</Link></h5>
                 <small>Written by: {a.author}</small>
                
                

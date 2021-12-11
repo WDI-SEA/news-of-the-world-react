@@ -36,11 +36,9 @@ function App() {
 
   const handleClick = (article) => {
     console.log(article);
-    // if(faves.indexOf(article) === -1){
-    //   setFaves(...faves, article )
-    // }
-    setFaves([...faves, article])
-
+    if(faves.indexOf(article) === -1){
+      setFaves([...faves, article])
+    }
   }
 
   return (
