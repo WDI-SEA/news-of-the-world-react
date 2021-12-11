@@ -1,9 +1,18 @@
-import React from "react";
+import react from "react";
+import { useParams } from 'react-router-dom'
 
-function Display() {
+function Display(props) {
+  
+    let params  = useParams()
+    let content = props.articles ? props.articles[params.id] : 'API or props error'
     return (
-        <h1>Display Page</h1>
+        <div>
+         <h1>{content.title}</h1>
+        <p>{content.content}</p>  
+        <img src = {content.urlToImage} alt = 'content-iamge'/>
+ 
+        </div>
     )
 }
 
-export default Display;
+export default Display; 
