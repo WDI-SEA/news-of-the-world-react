@@ -6,14 +6,14 @@ import Landing from './pages/Landing';
 require('dotenv').config()
 
 function App() {
-  let [articles, setArticles] = useState({articles: []}) 
+  let [articles, setArticles] = useState([]) 
   let [search, setSearch] = useState('')
    useEffect(()=>{ //grabbing data from the api
      fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=704b0327c1de487c804f47936b4e1d4d') //figure out env
      .then(response => response.json())
      .then(article=>{
        console.log("is this an article???", article.articles)
-      setArticles({articles: articles})
+      setArticles(article.articles)
      })
     }, [])
   
@@ -21,7 +21,7 @@ function App() {
       setSearch(e.target.value)
    }
   
-   const getFilteredStories = () => {
+   const getFilteredStories = () =>{
      console.log('filtered stories:', getFilteredStories)
      let searchTerm = search.toLowerCase
      return articles.articles.filter((v)=> {
