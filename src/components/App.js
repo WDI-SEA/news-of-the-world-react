@@ -36,23 +36,9 @@ function App() {
     <div className="App">
       <main>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Landing
-                articles={getFilteredArticles()}
-                search={search}
-                handleChange={handleChange}
-              />
-            }
-          />
-          <Route
-            path="/display/:id"
-            element={
-              <Display articles={data.articles} />
-            }
-          />
-        </Routes>
+          <Route path="/" element={ <Landing articles={getFilteredArticles()} search={search} handleChange={handleChange} /> } />
+          <Route path="/display/:id" element={ <Display articles={data.articles} /> } /> 
+          </Routes>
       </main>
     </div>
   )
