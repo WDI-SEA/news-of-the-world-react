@@ -12,8 +12,7 @@ function Display(props) {
            <b>{content.author}</b>
            <p>{content.description}</p>
            <a href={content.url}>Read Full Article Here!</a>
-        </div>
-        
+        </div> 
     )
 }
 
