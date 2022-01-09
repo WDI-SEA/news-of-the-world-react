@@ -18,7 +18,6 @@ const Articles = (props) => {
   return (
     <div>
       <ul>{articleList}</ul>
-      {/* <Display articleClicked={articleList}/> */}
     </div>
   )
 }
