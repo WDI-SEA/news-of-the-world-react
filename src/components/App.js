@@ -1,20 +1,52 @@
-import { Routes, Route } from 'react-router-dom';
-import '../App.css';
+import { Routes, Route } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import '../App.css'
 
-import Display from './pages/Display';
-import Landing from './pages/Landing';
+import Display from './pages/Display'
+import Landing from './pages/Landing'
 
-function App() {
+export default function App() {
+  const apiKey = process.env.REACT_APP_NEWSAPI_KEY
+  
+  //state vars
+  const [searchTerms, setSearchTerms] = useState('')
+  const [url, setUrl] = useState('no url set yet')
+
+
+  const firstUrl = `https://newsapi.org/v2/everything?country=us${searchTerms}&apiKey=${apiKey}`
+  // console.log(url)
+  const popularSearches = ['apple','covid-19','software engineering','ukraine']
+  
+
+
+  const handleSearchClick = (term) =>{
+    console.log(`setting search terms to ${term.replace(" ","-")}`)
+    setSearchTerms(`&q=${term.replace(" ","-")}`)
+    // setUrl(`https://newsapi.org/v2/everything?country=us${searchTerms}&apiKey=${apiKey}`)
+  }
+
+
+
+  // const [newsData, setNewsData] = useState()
+  // fetch(url)
+  //   .then(response => response.json())
+  //   .then(data => console.log(data))
+
+
   return (
     <div className="App">
       <main>
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route 
+            path="/" 
+            element={<Landing 
+              handleSearchClick={handleSearchClick}
+              popularSearches={popularSearches}
+              />} 
+          />
           <Route path="/display" element={<Display />} />
         </Routes>
       </main>
     </div>
-  );
+  )
 }
-
-export default App;
