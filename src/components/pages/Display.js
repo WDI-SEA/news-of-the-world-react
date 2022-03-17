@@ -1,11 +1,24 @@
-import React, { useParams } from "react";
+import React from "react";
 import Article from "../Article";
+import { useParams } from "react-router-dom";
 
-export default function Display() {
+export default function Display({ articlesResults }) {
+    const { category } = useParams()
+
+    //make API call here? - depending on input
+    const theArticles = articlesResults.map((article, index)=>{
+        return(
+            <Article 
+            articlesResults={article}
+            />
+        )
+    })
+
     return (
         <>
-            <h1>Display Page</h1>
-            <Article />
+            <h1>results for {category}</h1>
+            <hr></hr>
+            {theArticles}
         </>
     )
 }

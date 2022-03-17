@@ -1,34 +1,23 @@
 import { Routes, Route } from 'react-router-dom'
-import { useEffect, useState, useParams } from 'react'
+import { useState } from 'react'
 import '../App.css'
+import data from "../data/sample.js"
 
 import Display from './pages/Display'
 import Landing from './pages/Landing'
 
 export default function App() {
+  //data
   const apiKey = process.env.REACT_APP_NEWSAPI_KEY
+  const popularSearches = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
+  const sampleTopData = data
 
   //state vars
-  const [searchTerms, setSearchTerms] = useState('')
-  const [url, setUrl] = useState('no url set yet')
+  // const [searchTerms, setSearchTerms] = useState('')
+  // const [url, setUrl] = useState('no url set yet')
 
 
-  const firstUrl = `https://newsapi.org/v2/everything?country=us${searchTerms}&apiKey=${apiKey}`
-  // console.log(url)
-  const popularSearches = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
-  
-
-
-  const handleSearchClick = (term) =>{
-    console.log(`setting search terms to ${term.replace(" ","-")}`)
-    console.log('maybe change me to a <Link> instead ?')
-    setSearchTerms(`&q=${term.replace(" ","-")}`)
-    // setUrl(`https://newsapi.org/v2/everything?country=us${searchTerms}&apiKey=${apiKey}`)
-  }
-
-
-
-  // const [newsData, setNewsData] = useState()
+  // const firstUrl = `https://newsapi.org/v2/everything?country=us&apiKey=${apiKey}`
   // fetch(url)
   //   .then(response => response.json())
   //   .then(data => console.log(data))
@@ -41,7 +30,6 @@ export default function App() {
           <Route 
             path="/" 
             element={<Landing 
-              handleSearchClick={handleSearchClick}
               popularSearches={popularSearches}
               />} 
           />
@@ -52,7 +40,9 @@ export default function App() {
           {/* maybe? */}
           <Route 
             path="/top/:category" 
-            element={<Display />} 
+            element={<Display 
+              articlesResults={sampleTopData}
+            />} 
           />
         </Routes>
       </main>
