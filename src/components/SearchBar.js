@@ -1,22 +1,26 @@
 import SearchButton from "./SearchButton"
 
-export default function SearchBar ({handleSearchClick,popularSearches}) {
+export default function SearchBar ({popularSearches}) {
     //map out search buttons here
     const popularSearchButtons = popularSearches.map(searchTerm => {
         return(
             <SearchButton 
-                handleSearchClick={handleSearchClick}
                 searchTerm={searchTerm}
             />
         )
     })
+
     return(
         <>
-        <div>
-            <input type="text" placeholder="this is where search terms might be entered"></input>
+            <div>
+                <h1>enter a search here</h1>
+                <input type="text" placeholder="this is where search terms might be entered"></input>
 
-        </div>
-            {popularSearchButtons}
+            </div>
+            <div>
+                <h3>or get top news for:</h3>
+                {popularSearchButtons}
+            </div>
         </>
     )
 }

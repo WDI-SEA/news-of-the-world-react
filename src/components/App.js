@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useParams } from 'react'
 import '../App.css'
 
 import Display from './pages/Display'
@@ -7,7 +7,7 @@ import Landing from './pages/Landing'
 
 export default function App() {
   const apiKey = process.env.REACT_APP_NEWSAPI_KEY
-  
+
   //state vars
   const [searchTerms, setSearchTerms] = useState('')
   const [url, setUrl] = useState('no url set yet')
@@ -15,12 +15,13 @@ export default function App() {
 
   const firstUrl = `https://newsapi.org/v2/everything?country=us${searchTerms}&apiKey=${apiKey}`
   // console.log(url)
-  const popularSearches = ['apple','covid-19','software engineering','ukraine']
+  const popularSearches = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
   
 
 
   const handleSearchClick = (term) =>{
     console.log(`setting search terms to ${term.replace(" ","-")}`)
+    console.log('maybe change me to a <Link> instead ?')
     setSearchTerms(`&q=${term.replace(" ","-")}`)
     // setUrl(`https://newsapi.org/v2/everything?country=us${searchTerms}&apiKey=${apiKey}`)
   }
@@ -44,7 +45,15 @@ export default function App() {
               popularSearches={popularSearches}
               />} 
           />
-          <Route path="/display" element={<Display />} />
+          <Route 
+            path="/display" 
+            element={<Display />} 
+          />
+          {/* maybe? */}
+          <Route 
+            path="/top/:category" 
+            element={<Display />} 
+          />
         </Routes>
       </main>
     </div>

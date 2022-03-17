@@ -1,9 +1,11 @@
-export default function SearchButton ({handleSearchClick, searchTerm}) {
+import { Link } from "react-router-dom"
+
+export default function SearchButton ({searchTerm}) {
     return(
-        <button 
-            onClick={()=>handleSearchClick(searchTerm)}
-        >
-            {searchTerm}
-        </button>
+        <div>
+            <Link to={`/top/${searchTerm}`}>
+                {searchTerm}
+            </Link>
+        </div>
     )
 }

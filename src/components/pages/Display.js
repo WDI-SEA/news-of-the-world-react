@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useParams } from "react";
+import Article from "../Article";
 
-function Display() {
+export default function Display() {
     return (
-        <h1>Display Page</h1>
+        <>
+            <h1>Display Page</h1>
+            <Article />
+        </>
     )
 }
-
-export default Display;
