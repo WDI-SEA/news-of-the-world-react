@@ -1,9 +1,7 @@
 import React from "react";
 
-function Display() {
+export default function Display() {
     return (
         <h1>Display Page</h1>
     )
 }
-
-export default Display;
