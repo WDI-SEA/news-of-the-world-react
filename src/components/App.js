@@ -12,10 +12,11 @@ function App() {
   const [search, setSearch] = useState('')
 
   // const [newsUrl, setNewsUrl] = useState('')
+  const [url, setUrl] = useState('top-headlines?country=us')
 
   useEffect(() => {
     const api_key = process.env.REACT_APP_NEWS_API_KEY
-    const newsUrl = (`https://newsapi.org/v2/top-headlines?country=us&apiKey=${api_key}`)
+    const newsUrl = (`https://newsapi.org/v2/${url}&apiKey=${api_key}`)
     console.log("UseEffect is firing!")
     // const req = new Request(newsUrl);
     fetch(newsUrl)
@@ -24,7 +25,7 @@ function App() {
       console.log(jsonData.articles)
       setNewsInfo(jsonData.articles)
     })
-  }, [])
+  }, [url])
 
   const handleChange = (e) => {
     setSearch(e.target.value)
@@ -32,6 +33,8 @@ function App() {
 
   const handleSubmit = () => {
     console.log('submit button pressed')
+    setUrl(`everything?q=${search}`)
+    console.log(search, url)
   }
 
   return (
