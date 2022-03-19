@@ -28,7 +28,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Landing topNewsList={topNewsList}/>} />
-          <Route path="/display" element={<Display />} />
+          <Route path="/display" element={<Display topNewsList={topNewsList}/>} />
         </Routes>
       </main>
     </div>

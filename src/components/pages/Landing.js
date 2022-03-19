@@ -3,12 +3,15 @@ import React from "react";
 function Landing({topNewsList}) {
     const newsList = topNewsList.map((news, i) => {
         return (
-            <div topNewsList-key={i}>
+            <div>
                 <img src={news.urlToImage} alt="" />
                 <h1>{news.title}</h1>
-                 {news.author === null ? <h3>No Author</h3> : <h3>Written By: {news.author}</h3>}
                 <div>
-                    <p>{news.description}</p>
+                    <h5>{news.description}</h5>
+                </div>
+                 {news.author === null || news.author === ""  ? <h3>No Author</h3> : <p>Written By: {news.author}</p> }
+                <div>
+                   <p>Click here for <a href={news.url} target="_blank">more</a> information about the article</p> 
                 </div>
             </div>
         )
@@ -16,7 +19,7 @@ function Landing({topNewsList}) {
     return (
         <>
             <h1>Top News</h1>
-            {newsList}
+                {newsList}
         </>
     )
 }
