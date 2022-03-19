@@ -1,15 +1,20 @@
 import SearchButton from "./SearchButton"
 
-export default function SearchBar ({popularSearches}) {
+export default function SearchBar ({popularSearches,setSearchTerms}) {
+
     //map out search buttons here
     const popularSearchButtons = popularSearches.map(searchTerm => {
         return(
-            <SearchButton 
-                searchTerm={searchTerm}
-            />
+            <div
+                onClick={()=>setSearchTerms(searchTerm)}
+            >
+                <SearchButton 
+                    searchTerm={searchTerm}
+                />
+            </div>
         )
     })
-
+    
     return(
         <>
             <div>

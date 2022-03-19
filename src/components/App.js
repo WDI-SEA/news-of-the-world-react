@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../App.css'
 import data from "../data/sample.js"
 
@@ -13,14 +13,13 @@ export default function App() {
   const sampleTopData = data
 
   //state vars
-  // const [searchTerms, setSearchTerms] = useState('')
-  // const [url, setUrl] = useState('no url set yet')
+  const [searchTerms, setSearchTerms] = useState('')
+  const [url, setUrl] = useState('no url set yet')
 
-
-  // const firstUrl = `https://newsapi.org/v2/everything?country=us&apiKey=${apiKey}`
-  // fetch(url)
-  //   .then(response => response.json())
-  //   .then(data => console.log(data))
+ //change url after a search term has been set
+  useEffect(()=>{
+    setUrl(`https://newsapi.org/v2/top-headlines?country=us&${searchTerms}&apiKey=0e36f9beb30c43169c99a9154667f49d`)
+  },[searchTerms])
 
 
   return (
@@ -31,6 +30,7 @@ export default function App() {
             path="/" 
             element={<Landing 
               popularSearches={popularSearches}
+              setSearchTerms={setSearchTerms}
               />} 
           />
           <Route 
@@ -42,6 +42,7 @@ export default function App() {
             path="/top/:category" 
             element={<Display 
               articlesResults={sampleTopData}
+              popularUrl={url}
             />} 
           />
         </Routes>
