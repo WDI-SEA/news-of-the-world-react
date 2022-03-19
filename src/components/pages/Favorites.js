@@ -1,12 +1,18 @@
 import React from "react";
-import {useParams} from 'react-router-dom'
 
 
 function Favorites({faves}) {
+    console.log(faves)
+    const faveList = faves.map((fave, i) => {
+        return (
+            <h2>{fave.title}</h2>
+
+        )
+    })
     return (
         <>
             <h1>Your Favorites</h1>
-            {/* <h3>{faves.author}</h3> */}
+            {faveList}
         </>
     )
 }

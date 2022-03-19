@@ -31,11 +31,28 @@ function Landing({topNewsList, faves, setFaves}) {
           
         )
       })
+
+    const faveList = faves.map((fave, id) => {
+        return (
+            <div key={id}>
+                <h2>{fave.title}</h2>
+                {fave.urlToImage === null ? <h4>Image Unavailable</h4> : <img src={fave.urlToImage} width={500} height='auto'/>}
+                <h5>{fave.description}</h5>
+
+            </div>
+            
+
+
+        )
+    }) 
       console.log("These are your faves!",faves)
     return (
         <>
+            <h1>My Favorite Articles</h1>
+                {faveList}
             <h1>Top News</h1>
                 {newsList}
+
         </>
     )
 }
