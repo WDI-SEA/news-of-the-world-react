@@ -18,11 +18,6 @@ function Landing({topNewsList, faves, setFaves}) {
             <div>
               <h5>{news.description}</h5>
             </div>
-              {news.author === null || news.author === "" ? <h4>No Author</h4> : <h4>Written By: {news.author}</h4>}
-            <div>
-              <p>Click here for <a href={news.url} target="_blank">more</a> information about the article</p>
-            </div>
-
             {/* why doesn't news[id] not work? */}
             <button onClick={() => setFaves([...faves, topNewsList[id]])}>
               Favorite this Article

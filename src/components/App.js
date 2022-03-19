@@ -4,7 +4,7 @@ import {useEffect, useState} from 'react'
 import axios from 'axios'
 import Display from './pages/Display';
 import Landing from './pages/Landing';
-import Favorites from './pages/Favorites'
+// import Favorites from './pages/Favorites'
 
 
 
@@ -61,7 +61,7 @@ function App() {
           <Route path="/" element={<Landing topNewsList={topNewsList} setFaves={setFaves} faves={faves}/>} />
           <Route path="/display" element={<Display/>} />
           <Route path="/display/:id" element={<Display topNewsList={topNewsList}/>} />
-          <Route path="/favorites" element={<Favorites faves={faves}/>} />
+          {/* <Route path="/favorites" element={<Favorites faves={faves}/>} /> */}
         </Routes>
       </main>
     </div>
