@@ -1,8 +1,11 @@
 import React from "react";
 
-function Display() {
+
+function Display({newsList}) {
     return (
-        <h1>Display Page</h1>
+        <>
+            <h1>Display Page</h1>
+        </>
     )
 }
 
