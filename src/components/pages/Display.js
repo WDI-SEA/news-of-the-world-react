@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from 'react-router-dom'
 
-function Display({ newsInfo }) {
+function Display({ newsInfo, setFaves, faves}) {
     const {id} = useParams()
     return (
         <div>
@@ -14,6 +14,15 @@ function Display({ newsInfo }) {
                 <p>{newsInfo[id].content}</p>
                 <p>Author: {newsInfo[id].author}</p>
             </div>
+            <div>
+                    <button
+                        id="submit"
+                        type="button"
+                        onClick={() => setFaves([...faves, newsInfo[id]])}
+                    >
+                    FAVORITE
+                    </button>
+                </div>
         </div>
     )
 }

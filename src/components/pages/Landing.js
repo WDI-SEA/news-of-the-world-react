@@ -7,7 +7,7 @@ function Landing({ newsInfo, search, setSearch, handleSubmit, handleFaves, faves
             <li key={`articlekey-${index}`}>
                 <h2><Link to ={`/display/${index}`}>{article.title}</Link></h2>
                 <img src={article.urlToImage} width="300" alt="article related pic"></img> 
-                <div>
+                {/* <div>
                     <button
                         id="submit"
                         type="button"
@@ -15,7 +15,7 @@ function Landing({ newsInfo, search, setSearch, handleSubmit, handleFaves, faves
                     >
                     FAVORITE
                     </button>
-                </div>
+                </div> */}
             </li>
         )
     })
