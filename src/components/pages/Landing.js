@@ -1,20 +1,21 @@
 import React from "react";
-import { useState } from 'react'
+import { useState } from "react";
+import { Link } from 'react-router-dom'
 
-function Landing({topHeadlines}) {
-    console.log("@LANDING")
-    console.log(topHeadlines)
-  const articles = topHeadlines.map((article) => {
+function Landing({ headlines }) {
+  console.log("@LANDING");
+  const articles = headlines.map((article) => {
+    // console.log(article)
     return (
-      <li>
+      <li key={article.url}>
         <h3>`{article.title}`</h3>
-        <img 
-            src={article.urlToImage}
-            alt={''}
-        />
+        <Link to={`/articles/${article.id}`}>show me more</Link>
+        <img src={article.urlToImage} alt={""} />
         <p>date: `{article.publishedAt}`</p>
         <p>description: `{article.description}`</p>
-        <a rel='noopener noreferrer' target='_blank' href={article.url}>link</a>
+        <a rel="noopener noreferrer" target="_blank" href={article.url}>
+          link
+        </a>
         <hr />
       </li>
     );
@@ -25,7 +26,8 @@ function Landing({topHeadlines}) {
         <h2>Top USA Headlines</h2>
       </div>
       <div>
-          <ul>{articles}</ul>
+        <ul>{articles}</ul>
+        
       </div>
     </div>
   );
