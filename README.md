@@ -1,52 +1,70 @@
-# News of the World - React
-## Getting Started
--    Fork and clone this repo
--    Head over to the [News API](https://newsapi.org/) site and generate a free API key
+# Getting Started with Create React App
 
-## The Task
-| URL Pattern | Description |
-| ----------- | ----------- |
-| /      | Landing page shows all recent news articles, or a filtered list based on what the user searches      |
-| /articles/:id   | Displays all info about the article with the api id as indicated in the url params       |
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-You have been given a barebones React App from which to work, meaning you will have to complete and style existing components, create additional components, as required, and add routes to your application using `react router dom`, in addition to getting and storing API data.
+## Available Scripts
 
-#### Part 1: The API
-With your freshly minted API key in hand, it's time to see what data you get back from the API. 
+In the project directory, you can run:
 
-Read through the [Get Started](https://newsapi.org/docs/get-started) page in order to familiarize yourself with the endpoints and search options you have.
+### `npm start`
 
-Although it won't matter too much here, best practice is to protect your API keys from bad actors, so consider this when including your key in your application.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-#### Part 2: Components
-You have an `App.js` file in the root of your `src/components` folder, in addition to `Landing` and `Display` pages in `src/components/pages`. 
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-While these offer a starting point, you may want to consider the universal layout of the application, in addition to how you want to display your API response. Whatever your choice, you'll need to create additional components and import them to the files in which they are required.
+### `npm test`
 
-<details>
-<summary>Hint</summary>
-<br>
-Consider endpoints of the NewsAPI when making your decision. In addition to thinking about the data you'll receive back, what edge cases might you encounter and how might you combat these.
-</details>
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-#### Part 3: Search
-As much as it's a pain, a one size fits all approach doesn't generally fit users, especially something that can be as personal as what news they wish to read about.
+### `npm run build`
 
-With that in mind, create a search feature which queries your API based on user input.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-There are multiple ways to go about this. If you're struggling to implement, think about limiting potential user input to guarantee they return specific endpoints. Or, let the user input any text and do the search functionality just like animal crossing!
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-#### Part 4: Favorites
-Add a functionality where the user can save articles (in case they want to read later). You can decide how you want the UX/UI for this part of it to go! Just make sure you have displaying a list on teh landing page of all the saved articles (like favorites in the animal crossing app).
+### `npm run eject`
 
-#### Bonus: Fully Responsive
-If you've gotten this far, good job! You have one last task remaining: to make your app fully responsive.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-At this point, consider how you can change your layout and components. As always, [CSS Tricks](https://css-tricks.com/) is your friend, so if you're struggling, check out some of the resouces they have. If you are struggling on how to incorporate css into your React app, don't fret! There are [so many ways](https://codeburst.io/4-four-ways-to-style-react-components-ac6f323da822) to use css in React.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-<details>
-<summary>Hint</summary>
-<br>
-Aside from media queries, which should be your bread and butter in this task, think about the ways in which you might use the parent/child relationships between elements to your advantage.
-</details>
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
