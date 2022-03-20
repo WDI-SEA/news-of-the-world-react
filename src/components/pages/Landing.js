@@ -1,20 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Landing({ newsInfo, search, handleChange, handleSubmit }) {
+function Landing({ newsInfo, search, setSearch, handleSubmit, handleFaves, faves }) {
     const allArticles = newsInfo.map((article, index) => {
         return (
             <li key={`articlekey-${index}`}>
-                {/* <Link to ={`/display`}>{article.title}</Link> */}
-                <h2>{article.title}</h2>
-                <h3>{article.author}</h3>
-                {/* <p>{article.content}</p>
-                <p>{article.description}</p> */}
+                <h2><Link to ={`/display/${index}`}>{article.title}</Link></h2>
+                <img src={article.urlToImage} width="300" alt="article related pic"></img> 
+                <div>
+                    <button
+                        id="submit"
+                        type="button"
+                        onClick={handleFaves(article)}
+                    >
+                    FAVORITE
+                    </button>
+                </div>
             </li>
         )
     })
 
-    
+    const allFaves = faves.map((fave, index) => {
+        return (
+            <h2><Link to ={`/display/${index}`}>{fave.title}</Link></h2>
+        )
+    })
+
     return (
         <>
             <h1>Landing Page</h1>
@@ -24,9 +35,9 @@ function Landing({ newsInfo, search, handleChange, handleSubmit }) {
                 <input 
                     id="search" 
                     type="text" 
-                    value={search} 
-                    onChange={handleChange}
-                />
+                    value={search}
+                    onChange={e => setSearch(e.target.value)}
+                ></input>
                 <button
                     id="submit"
                     type="button"
@@ -35,6 +46,9 @@ function Landing({ newsInfo, search, handleChange, handleSubmit }) {
                 SEARCH
                 </button>
             </form>
+            <h2>Favorited Articles</h2>
+            {allFaves}
+            <h2>All Articles</h2>
             {allArticles}
         </>
     )
