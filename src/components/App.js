@@ -11,8 +11,7 @@ function App() {
   const [articles, setArticles] = useState([])
   // const [searchData, setSearchData] = useState('')
 
-  // const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_API_KEY}`
-  const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=ce55c74b200e4ac1925e7df8558f2d0d`
+  const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_API_KEY}`
 
   useEffect(()=> {
     const getNews = async () => {
