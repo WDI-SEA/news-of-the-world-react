@@ -6,6 +6,8 @@ import Display from './components/pages/Display'
 import Landing from './components/pages/Landing'
 import axios from 'axios'
 import Favorites from './components/pages/Favorites'
+// import newsSample from './data/newsSample'
+import Navigation from './components/layout/Navigation'
 
 export default function App () {
 
@@ -13,7 +15,11 @@ export default function App () {
   const [search, setSearch] = useState('')
   const [pinnedNews, setPinnedNews] = useState([])
   
-  const endPoint = `https://newsapi.org/v2/everything?q=${search}&apiKey=${process.env.REACT_APP_NOTW_API_KEY}`
+  let endPoint = `https://newsapi.org/v2/everything?q=${search}&apiKey=${process.env.REACT_APP_NOTW_API_KEY}`
+
+  if(search==='') {
+    endPoint = `https://newsapi.org/v2/top-headlines?country=ca&apiKey=${process.env.REACT_APP_NOTW_API_KEY}`
+  }
   
  useEffect(()=> {
   (async () => {
@@ -22,16 +28,22 @@ export default function App () {
   })()
  },[endPoint])   
 
+ // useEffect(()=> {
+//   setArticles(newsSample.articles)
+// },[])
+
  const pinNews = (article) => {
   setPinnedNews([...pinnedNews, article])
 }
  
   return (
     <>
+      
       <BrowserRouter>
+      <Navigation  search={search} setSearch={setSearch}/>
         <Layout>
           <Routes>
-            <Route exact path="/" element={<Landing articles={articles} search={search} setSearch={setSearch}/>} />
+            <Route exact path="/" element={<Landing articles={articles} />} />
             <Route path="/details/:idx" element={<Display articles={articles} pinArticle={pinNews}/>} />
             <Route path="/favorites" element={<Favorites pinnedArticles={pinnedNews} />}/>
           </Routes>

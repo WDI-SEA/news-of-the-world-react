@@ -1,23 +1,6 @@
-const newsSample = [
+const newsSample = 
  {  
     articles: [
-      {
-        source: {
-          id: null,
-          name: 'National Post'
-        },
-        author: 'Steve Nesius and Steve Gorman, Reuters',
-        title:
-          "NASA's big, new moon rocket set for debut in rollout to Florida launch pad - National Post",
-        description:
-          'CAPE CANAVERAL — NASA’s next-generation moon rocket was due on Thursday to make a highly anticipated, slow-motion journey from an assembly plant to its launch…',
-        url:
-          'https://nationalpost.com/pmn/news-pmn/nasas-big-new-moon-rocket-set-for-debut-in-rollout-to-florida-launch-pad',
-        urlToImage: null,
-        publishedAt: '2022-03-17T04:26:10Z',
-        content:
-          'Author of the article:\r\nArticle content\r\nCAPE CANAVERAL NASAs next-generation moon rocket was due on Thursday to make a highly anticipated, slow-motion journey from an assembly plant to its launch pa… [+5197 chars]'
-      },
       {
         source: {
           id: null,
@@ -352,5 +335,7 @@ const newsSample = [
           'Federal Reserve Chair Jerome Powell sounded quite hawkish as the U.S. central bank raised rates by 25 basis points for the first time since 2018 and projected six more rate hikes in 2022.\r\nThe more a… [+3154 chars]'
       }
     ]
-  }
-]
+ }
+
+
+export default newsSample

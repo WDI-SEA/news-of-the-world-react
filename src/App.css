@@ -40,14 +40,23 @@
     transform: rotate(360deg);
   }
 }
-img {
-  max-width: 200px;
-}
+
 .flex-container {
-  display: flex;  
-  height: fit-content;
-  padding: 0;
-  gap: 10px;
+  display: flex;   
+  /* align-items: flex-start;  */
+  align-items: stretch; 
+  /* flex-flow: row wrap; */ 
+  flex-direction: row; 
+  flex-wrap: wrap; 
+  align-content: flex-start;
+  height: 100%;
+  padding: 5px;
+  gap: 5px;
+  justify-content:flex-start;
+  min-width: 400px;  
+  /* width: 100%; */
+  margin-left: 15px;
+  margin-right: 0;  
 }
 .centered-element {
   display: flex;
@@ -69,11 +78,7 @@ header{
   align-items: center;  
   object-fit: fill;
 }
-main {
-  position:fixed;
-  top: 50px;
-  padding: 20px
-}
+
 
 footer{
   width: 100%;
@@ -92,7 +97,7 @@ footer{
   width: 180px;
   position: fixed;
   z-index: 1;
-  top: 60px;
+  top: 80px;
   left: 0;
   background-color: rgb(255, 255, 255);
   overflow-x: hidden;
@@ -120,7 +125,7 @@ footer{
 .main {
   margin-left: 180px; 
   font-size: 28px; 
-  padding: 0px 10px;
+  padding: 0px 10px;  
 }
 
 @media screen and (max-height: 450px) {
@@ -131,9 +136,11 @@ input {
   font-weight: 400;
   font-size: 12px;
   color: #818181;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .card-head {
-  width: 350px;
+  width: 100%;
   min-width: 350px;
   min-height: 300px;
   /* border-radius: 5px; */
@@ -152,22 +159,22 @@ input {
 .card-img-holder{
   width:100%;
   padding:5px;
+  
 }
-
 .card-regular {
   width: 200px;
   min-width: 200px;
-  min-height: 300px;
+  max-height: 400px;
+  min-height: 400px;
   /* border-radius: 5px; */
-  border: .05rem solid rgb(227, 230, 226);
-  border-left: 15px solid orangered;
+  border: .05rem solid rgb(227, 230, 226);  
   height: fit-content;
-  padding: 10px 10px 10px 10px;
-  background-color: rgb(249, 251, 252);  
-  box-shadow: 1px 5px 5px -2px rgba(44, 44, 44,.6); 
+  padding: 10px 10px 10px 10px; 
   margin: 5px;  
-  border-radius: 10px; 
-  background-image: linear-gradient(to bottom right, rgb(249, 251, 252), rgba(255, 255, 139, .3));
+  overflow: hidden;
+}
+img {
+  width: 100%;
 }
 
 .add-favorite {
@@ -182,4 +189,9 @@ label {
   font-weight: 400;
   font-size: 12px;
   color: #818181;
+}
+button {
+  font-weight: 400;
+  font-size: 12px;
+  color: #818181;  
 }

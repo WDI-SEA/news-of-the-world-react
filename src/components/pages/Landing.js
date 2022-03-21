@@ -2,20 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import dayjs from 'dayjs'
 
-export default function Landing ({ articles,search, setSearch }) {
+export default function Landing ({ articles }) {
+
   const articlesList = articles.map((article, index) => {
     if (index > 0) {
       return (
         <>
-          <div className='card-regular' key={`articleKey${index}`}>
+          <div className='card-regular'>
             <div className='card-img-holder'>
-              <img src='{article.urlToImage' alt={article.description} />
+              <img src={article.urlToImage} alt={article.description} />
             </div>
-            <div className='card-head-content'>
-              <h3>{article.title}</h3>
+            <div className='card-head-content'  key={`articleKey${index}`}>
+              <h5>{article.title}</h5>
               <p>
                 <small>
-                  by {article.author}. Published :{' '}
+                  {article.author} <br />Published : {' '}   
                   {dayjs(article.publishedAt).format('MM/DD/YYYY')}
                 </small>
               </p>
@@ -31,49 +32,38 @@ export default function Landing ({ articles,search, setSearch }) {
     } else {
       return (
         <>
-          <div className='card-head' key={`articleKey${index}`}>
-            <div className='card-img-holder'>
-              <img src='{article.urlToImage' alt={article.description} />
+          <div className='card-head'>
+            <h4>{article.title}</h4>
+            <div className='card-img-holder' key={`articleKey${index}`}>
+              <img src={article.urlToImage} alt={article.description} />
             </div>
             <div className='card-head-content'>
-              <h3>{article.title}</h3>
-              <p>
-                <small>
-                  by {article.author}. Published :{' '}
-                  {dayjs(article.publishedAt).format('MM/DD/YYYY')}
-                </small>
+              <p>                
+                  <small>
+                    {article.author} Published : {' '}
+                    {dayjs(article.publishedAt).format('MM/DD/YYYY')}
+                  </small>
+                
               </p>
-              <p>
-                <small>
-                  <Link to={`/details/${index}`}>Read more...</Link>
-                </small>
-              </p>
+              
+                <small>{article.content}</small>
+                <p>
+                  <small>
+                    <Link to={`/details/${index}`}>Read more...</Link>
+                  </small>
+                </p>
+              
             </div>
           </div>
         </>
       )
     }
-  })
-  const submitForm = (e) => {
-    e.preventDefault()
-  }
+  })  
   return (
     <>
-      <form onSubmit={submitForm}>
-        <label htmlFor='search'>Search : </label>
-        <input
-          type='text'
-          value={search}
-          id='search'
-          onChange={e => {
-            setSearch(e.target.value)
-          }}
-        />
-      </form>      
-      <div className='flex-container'>
-        <h3>News</h3>
+      <div className='main'>
+        <div className='flex-container'>{articlesList}</div>
       </div>
-      <ul>{articlesList}</ul>
     </>
   )
 }
