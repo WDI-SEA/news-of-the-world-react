@@ -55,7 +55,7 @@ export default function App () {
         <Layout>
           <Routes>
             <Route exact path="/" element={<Landing articles={articles} />} />
-            <Route path="/details/:id" element={<Display articles={articles} pinArticle={pinNews}/>} />
+            <Route path="/articles/:id" element={<Display articles={articles} pinArticle={pinNews}/>} />
             <Route path="/favorites" element={<Favorites pinnedArticles={pinnedNews} />}/>
           </Routes>
         </Layout>
