@@ -18,8 +18,10 @@ export default function App() {
 
  //change url after a search term has been set
   useEffect(()=>{
-    setUrl(`https://newsapi.org/v2/top-headlines?country=us&${searchTerms}&apiKey=0e36f9beb30c43169c99a9154667f49d`)
+    setUrl(`https://newsapi.org/v2/top-headlines?country=us&${searchTerms}&apiKey=${apikey}`)
   },[searchTerms])
+
+  //
 
 
   return (
