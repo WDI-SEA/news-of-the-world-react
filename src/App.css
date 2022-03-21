@@ -148,6 +148,7 @@ input {
   height: fit-content;
   padding: 10px 10px 10px 10px;  
   margin: 5px;  
+  margin-top: 10px;
   
 }
 .card-head-content {

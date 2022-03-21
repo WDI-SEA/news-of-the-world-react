@@ -26,7 +26,15 @@ export default function App () {
     const res = await axios.get(endPoint)
     setArticles(res.data.articles)
   })()
- },[endPoint])   
+ },[])   
+
+ function searchNews() {
+  (async () => {
+    const res = await axios.get(endPoint)
+    setArticles(res.data.articles)
+    console.log(articles[0].description)
+  })()
+ }
 
  // useEffect(()=> {
 //   setArticles(newsSample.articles)
@@ -40,7 +48,7 @@ export default function App () {
     <>
       
       <BrowserRouter>
-      <Navigation  search={search} setSearch={setSearch}/>
+      <Navigation  search={search} setSearch={setSearch} searchNews={searchNews}/>
         <Layout>
           <Routes>
             <Route exact path="/" element={<Landing articles={articles} />} />

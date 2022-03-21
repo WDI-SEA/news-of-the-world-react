@@ -2,11 +2,12 @@
 import { Link } from "react-router-dom"
 
 
-export default function Navigation ({ search, setSearch }) {
+export default function Navigation ({ search, setSearch, searchNews }) {
     
     const submitForm = (e) => {
         e.preventDefault()
         setSearch(search)
+        searchNews()
       }
     
   return (

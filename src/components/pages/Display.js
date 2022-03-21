@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 
 export default function Display({ pinArticle, articles }) {
     const { id } = useParams()
+    console.log(articles[id].description)
     return (
         <>
         <div className='card-head'>
