@@ -4,19 +4,55 @@ import axios from "axios";
 import { Link } from 'react-router-dom'
 
 
-function Landing({ articles }) {
+function Landing({ articles, faves, handleSearch, search }) {
 
     const allArticles = articles.map((article, idx) => {
         return (
-            <li key={`article-${idx}`}><Link to={`/articles/${idx}`}>{article.title}</Link></li>
+            <>
+                <li key={`article-${idx}`}><Link to={`/articles/${idx}`}>{article.title}</Link></li>
+                <br />
+
+            </>
+        )
+    })
+
+    const savedArticles = faves.map((article, idx) => {
+        return (
+            <>
+                <li key={`article-${idx}`}><Link to={`/articles/${idx}`}>{article.title}</Link></li>
+                <br />
+
+            </>
         )
     })
     return (
         <div>
-            <h1>Landing Page</h1>
-            <ul>
-                {allArticles}
-            </ul>
+            <div>
+                <label htmlFor="query-search">Search: </label>
+                <input
+                    id="query-search"
+                    type="text"
+                    value={search}
+                    onChange={handleSearch}
+                />
+            </div>
+            <div className="faveNews">
+                <h1>Saved Articles</h1>
+                <hr />
+                <ul>
+                    {savedArticles}
+                </ul>
+
+            </div>
+
+            <div className="newsToday">
+                <h1>Top News For Today</h1>
+                <h6>{Date()}</h6>
+                <hr />
+                <ul>
+                    {allArticles}
+                </ul>
+            </div>
         </div>
     )
 }
