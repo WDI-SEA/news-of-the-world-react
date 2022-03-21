@@ -5,6 +5,7 @@ import data from "../data/sample.js"
 
 import Display from './pages/Display'
 import Landing from './pages/Landing'
+import axios from 'axios'
 
 export default function App() {
   //data
@@ -15,13 +16,21 @@ export default function App() {
   //state vars
   const [searchTerms, setSearchTerms] = useState('')
   const [url, setUrl] = useState('no url set yet')
+  const [dataResults, setDataResults] = useState()
 
  //change url after a search term has been set
   useEffect(()=>{
-    setUrl(`https://newsapi.org/v2/top-headlines?country=us&${searchTerms}&apiKey=${apikey}`)
+    setUrl(`https://newsapi.org/v2/top-headlines?country=us&${searchTerms}&apiKey=${apiKey}`)
   },[searchTerms])
 
-  //
+  //ping api after url has been set
+  useEffect(()=>{
+    axios.get(url)
+      .then(res=>{
+        console.log(res.data)
+        setDataResults(res.data.articles)
+      })
+  },[url])
 
 
   return (
@@ -43,7 +52,8 @@ export default function App() {
           <Route 
             path="/top/:category" 
             element={<Display 
-              articlesResults={sampleTopData}
+              // articlesResults={sampleTopData}
+              articlesResults={dataResults}
               popularUrl={url}
             />} 
           />

@@ -1,7 +1,6 @@
 import React from "react";
 import Article from "../Article";
-import { useParams } from "react-router-dom";
-import axios from 'axios'
+import { useParams } from "react-router-dom"
 
 export default function Display({ 
     articlesResults,
