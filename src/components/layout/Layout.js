@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Navigation from "./Navigation";
 
 export default function Layout({children}) {
     
@@ -8,10 +9,13 @@ export default function Layout({children}) {
             <Header/>    
         </header>                
         <main>
-            {children}    
+            <Navigation />
+            <div className="main">
+                {children}    
+            </div>
         </main>        
         <footer>
-            Created by Norman T.
+          Powered by : NewsAPI.org
         </footer>
         </>
     )

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;0,700;1,200;1,400&display=swap');
+* {
+  font-family: 'Poppins', sans-serif;
+}
 .App {
   text-align: center;
 }
@@ -82,4 +86,100 @@ footer{
   justify-content: center;
   display: flex;
   padding: 10px;
+}
+.sidenav {
+  height: 100%;
+  width: 180px;
+  position: fixed;
+  z-index: 1;
+  top: 60px;
+  left: 0;
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  padding-top: 20px;  
+  padding-left: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #818181;
+}
+
+.sidenav a {
+  /* padding: 6px 8px 6px 16px; */
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.sidenav a:hover {
+  color: #3da5e0;
+}
+
+.main {
+  margin-left: 180px; 
+  font-size: 28px; 
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+input {
+  font-weight: 400;
+  font-size: 12px;
+  color: #818181;
+}
+.card-head {
+  width: 350px;
+  min-width: 350px;
+  min-height: 300px;
+  /* border-radius: 5px; */
+  border: .05rem solid rgb(227, 230, 226);  
+  height: fit-content;
+  padding: 10px 10px 10px 10px;  
+  margin: 5px;  
+  
+}
+.card-head-content {
+  font-size:14px;
+  width:100%;
+  padding:5px;  
+}
+
+.card-img-holder{
+  width:100%;
+  padding:5px;
+}
+
+.card-regular {
+  width: 200px;
+  min-width: 200px;
+  min-height: 300px;
+  /* border-radius: 5px; */
+  border: .05rem solid rgb(227, 230, 226);
+  border-left: 15px solid orangered;
+  height: fit-content;
+  padding: 10px 10px 10px 10px;
+  background-color: rgb(249, 251, 252);  
+  box-shadow: 1px 5px 5px -2px rgba(44, 44, 44,.6); 
+  margin: 5px;  
+  border-radius: 10px; 
+  background-image: linear-gradient(to bottom right, rgb(249, 251, 252), rgba(255, 255, 139, .3));
+}
+
+.add-favorite {
+  font-weight: 100;
+  font-size: 13px;
+  color:rgb(105, 47, 2);
+}
+.add-favorite:hover {
+  cursor: pointer;
+}
+label {
+  font-weight: 400;
+  font-size: 12px;
+  color: #818181;
 }
