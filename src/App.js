@@ -9,6 +9,7 @@ import Favorites from './components/pages/Favorites'
 // import newsSample from './data/newsSample'
 import Navigation from './components/layout/Navigation'
 
+
 export default function App () {
 
   const [articles, setArticles] = useState([])
@@ -25,6 +26,7 @@ export default function App () {
   (async () => {
     const res = await axios.get(endPoint)
     setArticles(res.data.articles)
+    // console.log(articles[1].source.name)
   })()
  },[])   
 
@@ -32,7 +34,7 @@ export default function App () {
   (async () => {
     const res = await axios.get(endPoint)
     setArticles(res.data.articles)
-    console.log(articles[0].description)
+    // console.log(articles[0].description)
   })()
  }
 
@@ -49,10 +51,11 @@ export default function App () {
       
       <BrowserRouter>
       <Navigation  search={search} setSearch={setSearch} searchNews={searchNews}/>
+    
         <Layout>
           <Routes>
             <Route exact path="/" element={<Landing articles={articles} />} />
-            <Route path="/details/:idx" element={<Display articles={articles} pinArticle={pinNews}/>} />
+            <Route path="/details/:id" element={<Display articles={articles} pinArticle={pinNews}/>} />
             <Route path="/favorites" element={<Favorites pinnedArticles={pinnedNews} />}/>
           </Routes>
         </Layout>

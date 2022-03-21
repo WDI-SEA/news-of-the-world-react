@@ -83,9 +83,9 @@ header{
 footer{
   width: 100%;
   position: fixed;        
-  background: rgb(143, 140, 140);
+  background: rgb(255, 255, 255);
   padding: 0;
-  color: #fff;
+  color: rgb(63, 61, 61);
   bottom: 0;
   height: fit-content;    
   justify-content: center;
@@ -140,7 +140,7 @@ input {
   margin-bottom: 5px;
 }
 .card-head {
-  width: 100%;
+  width: 96%;
   min-width: 350px;
   min-height: 300px;
   /* border-radius: 5px; */
