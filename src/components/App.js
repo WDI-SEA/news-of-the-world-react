@@ -9,47 +9,36 @@ import Landing from './pages/Landing';
 function App() {
 
   const key = process.env.REACT_APP_API_KEY
-  const year = new Date().getFullYear()
-  const month = new Date().getMonth()
-  const day = new Date().getDate()
-  // const latestDate = new Date(year, month, day)
-  const latestDate = new Date()
 
   const [newsArticle, setNewsArticle] = useState([])
-  const [filteredArticle, setFilteredArticle] = useState([])
-  const [search, setSearch] = useState('Top Headlines')
-  // const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('')
   const [faves, setFaves] = useState([])
 
 
-  //fetching data from api
-  // const url = `https://newsapi.org/v2/everything?=${latestDate}&sortBy=popularity&apiKey=${myKey}`
+  const handleSubmit = e => {
+    e.preventDefault()
+    const url = `https://newsapi.org/v2/everything?q=${search}&apikey=${key}`
+    axios.get(url)
+      .then(dataResponse => setNewsArticle(dataResponse.data.articles))
+  }
+
   useEffect(() => {
-    const url = `https://newsapi.org/v2/everything?q=${search}&apiKey=${key}`
-    // const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${key}`
+    const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${key}`
     axios.get(url)
       .then(dataResponse => setNewsArticle(dataResponse.data.articles))
   }, [newsArticle])
 
-
   const handleClick = (article) => {
     if (!faves.includes(article))
       setFaves([...faves, article])
+    console.log('fave', faves)
   }
-
-  const handleSearch = e => {
-    e.preventDefault()
-    setSearch(e.target.value)
-    getFilteredArticles()
-  }
-
-  const getFilteredArticles = () => {
-    const filteredArticles = newsArticle.filter((article) => {
-      return article.title.toLowerCase().includes(search.toLowerCase())
+  const removeFave = (article) => {
+    const removed = faves.filter(favedArticle => {
+      if (favedArticle.title !== article.title)
+        return favedArticle
     })
-    // return filteredArticles
-    // setFilteredArticle(filteredArticles)
-    setNewsArticle(filteredArticles)
+    setFaves({ ...faves, removed })
   }
 
   return (
@@ -62,8 +51,8 @@ function App() {
               <Landing
                 articles={newsArticle}
                 faves={faves}
-                getFilteredArticles={getFilteredArticles}
-                handleSearch={handleSearch}
+                handleSubmit={handleSubmit}
+                setSearch={setSearch}
                 search={search}
               />} />
           <Route
@@ -72,6 +61,8 @@ function App() {
               <Display
                 articles={newsArticle}
                 handleClick={handleClick}
+                removeFave={removeFave}
+                faves={faves}
               />} />
         </Routes>
       </main>

@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom'
 
 
-function Landing({ articles, faves, handleSearch, search }) {
+function Landing({ articles, faves, handleSubmit, search, setSearch }) {
 
     const allArticles = articles.map((article, idx) => {
         return (
@@ -28,13 +28,16 @@ function Landing({ articles, faves, handleSearch, search }) {
     return (
         <div>
             <div>
-                <label htmlFor="query-search">Search: </label>
-                <input
-                    id="query-search"
-                    type="text"
-                    value={search}
-                    onChange={handleSearch}
-                />
+                <form onSubmit={(e) => { handleSubmit(e) }}>
+                    <label htmlFor="query-search">Search: </label>
+                    <input
+                        id="query-search"
+                        type="text"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+                    <input type='submit' />
+                </form>
             </div>
             <div className="faveNews">
                 <h1>Saved Articles</h1>

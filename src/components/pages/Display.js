@@ -1,12 +1,16 @@
 import React from "react";
 import { useParams, Link } from 'react-router-dom'
 
-function Display({ articles, handleClick }) {
+function Display({ articles, handleClick, removeFave, faves }) {
     const { id } = useParams()
 
     return (
         <div>
-            <h1>Display Page</h1>
+            {/* <h1>Display Page</h1> */}
+
+            <div className="display-title">
+                <h2>{articles[id].title}</h2>
+            </div>
 
             <div className="display-image">
                 <img src={articles[id].urlToImage} />
@@ -28,8 +32,10 @@ function Display({ articles, handleClick }) {
             <div className="display-publishedDate">
                 <p>Date Published: {articles[id].publishedAt}</p>
             </div>
-
-            <button onClick={() => handleClick(articles[id])}>Save!</button>
+            {!faves.includes(articles[id]) ?
+                <button onClick={() => handleClick(articles[id])}>Save</button> :
+                <button onClick={() => removeFave(articles[id])}> Saved </button>
+            }
             <br />
             <Link to='/'>Back</Link>
 
