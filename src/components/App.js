@@ -5,6 +5,7 @@ import '../App.css';
 
 import Display from './pages/Display';
 import Landing from './pages/Landing';
+import FavesDisp from './pages/FavesDisp';
 
 function App() {
 
@@ -60,6 +61,14 @@ function App() {
             element={
               <Display
                 articles={newsArticle}
+                handleClick={handleClick}
+                removeFave={removeFave}
+                faves={faves}
+              />} />
+          <Route
+            path='/faves/:id'
+            element={
+              <FavesDisp
                 handleClick={handleClick}
                 removeFave={removeFave}
                 faves={faves}

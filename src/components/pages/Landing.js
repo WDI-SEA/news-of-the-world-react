@@ -19,7 +19,7 @@ function Landing({ articles, faves, handleSubmit, search, setSearch }) {
     const savedArticles = faves.map((article, idx) => {
         return (
             <>
-                <li key={`article-${idx}`}><Link to={`/articles/${idx}`}>{article.title}</Link></li>
+                <li key={`article-${idx}`}><Link to={`/faves/${idx}`}>{article.title}</Link></li>
                 <br />
 
             </>
