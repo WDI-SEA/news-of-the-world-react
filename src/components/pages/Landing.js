@@ -1,8 +1,15 @@
 import React from "react";
+import Article from './Article'
 
-function Landing() {
+function Landing(props) {
+    const articles = props.articles.map((article, i) => {
+        return <Article key={`article-${i}`} article ={article}/>
+    })
     return (
-        <h1>Landing Page</h1>
+        <div className="articles-container">
+            <h1>Articles</h1>
+            {articles}
+        </div>
     )
 }
 
