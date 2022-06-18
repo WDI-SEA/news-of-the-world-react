@@ -24,7 +24,7 @@ export default function App() {
       <Header />
       <main>
         <Routes>
-          <Route path="/" element={<Landing articles={article} article={this.state.article} setArticles={this.setArticles} />} />
+          <Route path="/" element={<Landing articles={article} />} />
           <Route path="/display/:id" element={<Display articles={article} />} />
         </Routes>
       </main>

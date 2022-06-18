@@ -14,6 +14,13 @@ export default function Landing(props) {
     const handleChange = (e) => {
         setSearch(e.target.value)
     }
+    const getFilteredNews = () => {
+        const searchTerm = search.toLowerCase()
+        return props.articles.filter(a => {
+            let lowerCaseTitle = a.title.toLowerCase()
+            return lowerCaseTitle.includes(searchTerm)
+        })
+    }
     return (
         <>
             <div>
