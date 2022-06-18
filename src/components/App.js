@@ -16,8 +16,7 @@ export default function App() {
   const [saved, setSaved] = useState([])
 
   const headlineArticlesUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`
-  // const searchedArticlesUrl = `https://newsapi.org/v2/everything?q=${search}&apiKey=${apiKey}`
-
+  
   const handleChange = e => {
     setSearch(e.target.value)
   }
@@ -26,24 +25,25 @@ export default function App() {
       setSaved([...saved, article])
     }
   }
+  const handleSubmit = e => {
+    e.preventDefault()
+    displaySearchedArticles()
+}
   const handleRemoveSavedArticle = (article) => {
     let savedArticles = [...saved]
     const articleIndex = savedArticles.indexOf(article)
     savedArticles.splice(articleIndex, 1)
     setSaved(savedArticles)
   }
-
-  const getFilteredArticles = (e) => {
-    const searchTerm = search.toLowerCase()
-    return articles.filter(article => {
-      const lowerCaseTitle= article.title.toLowerCase()
-      return lowerCaseTitle.includes(searchTerm)
-    })
-  }
-  // const handleSubmit = e => {
-  //     e.preventDefault()
-  //     displaySearchedArticles()
+  
+  // const getFilteredArticles = (e) => {
+  //   const searchTerm = search.toLowerCase()
+  //   return articles.filter(article => {
+  //     const lowerCaseTitle= article.title.toLowerCase()
+  //     return lowerCaseTitle.includes(searchTerm)
+  //   })
   // }
+  
   useEffect(() => {
     const displayAllArticles = async () => {
       try {
@@ -58,18 +58,20 @@ export default function App() {
     }
     displayAllArticles()
   }, [headlineArticlesUrl])
-
-  // const displaySearchedArticles = async () => {
-  //   try {
-  //     const results = await axios.get(searchedArticlesUrl)
-  //     // console.log('this is results',results)
-  //     const articles = results.data.articles
-  //     // console.log('this is articles',articles)
-  //     setArticles(articles)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
+  
+  const displaySearchedArticles = async () => {
+    const searchedArticlesUrl = `https://newsapi.org/v2/everything?q=${search}&apiKey=${apiKey}`
+    try {
+      console.log('searching for articles')
+      const results = await axios.get(searchedArticlesUrl)
+      // console.log('this is results',results)
+      const articles = results.data.articles
+      // console.log('this is articles',articles)
+      setArticles(articles)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
   return (
@@ -79,8 +81,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={
           <Landing  
-          articles={getFilteredArticles()}
-          // searchedArticles={displaySearchedArticles()}
+          articles={articles}
+          handleSubmit={handleSubmit}
+          searchedArticles={displaySearchedArticles}
           search={search}
           handleChange={handleChange}
           saved={saved}

@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 
 export default function Landing(props) {
     // console.log(props.articles)
-    // let articles = props.search ? props.searchedArticles : props.articles
+    
+    let articles = props.search ? props.searchedArticles : props.articles
     
     const savedArticles = props.saved.map((article, i) => {
         return(
@@ -11,7 +12,7 @@ export default function Landing(props) {
             </li>
         )
     })
-    const articles = props.articles.map((article, i) => {
+    articles = props.articles.map((article, i) => {
         return(
             <li style={{listStyle: 'none'}} key={`article-${i}`}>
                 <Link to={`/article/${i}`}>{article.title}</Link>
@@ -21,7 +22,7 @@ export default function Landing(props) {
     // console.log(articles)
   return (
     <div>
-        <form>
+        <form onSubmit={(e)=>props.handleSubmit(e)}>
             <input
               id="article-search"
               type="text"
