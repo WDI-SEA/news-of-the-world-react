@@ -13,12 +13,24 @@ const apiKey = process.env.REACT_APP_API_KEY
 export default function App() {
   const [articles, setArticles] = useState([])
   const [search, setSearch] = useState('')
+  const [saved, setSaved] = useState([])
 
   const headlineArticlesUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`
   // const searchedArticlesUrl = `https://newsapi.org/v2/everything?q=${search}&apiKey=${apiKey}`
 
   const handleChange = e => {
-      setSearch(e.target.value)
+    setSearch(e.target.value)
+  }
+  const handleSaveArticle = (article) => {
+    if (!saved.includes(article)){
+      setSaved([...saved, article])
+    }
+  }
+  const handleRemoveSavedArticle = (article) => {
+    let savedArticles = [...saved]
+    const articleIndex = savedArticles.indexOf(article)
+    savedArticles.splice(articleIndex, 1)
+    setSaved(savedArticles)
   }
 
   const getFilteredArticles = (e) => {
@@ -71,13 +83,15 @@ export default function App() {
           // searchedArticles={displaySearchedArticles()}
           search={search}
           handleChange={handleChange}
-          // handleSubmit={handleSubmit}
+          saved={saved}
           />
           } />
           <Route path="/article/:id" 
           element={
           <Display 
           articles={articles}
+          handleSaveArticle={handleSaveArticle}
+          handleRemoveSavedArticle={handleRemoveSavedArticle}
           />
           } />
         </Routes>
