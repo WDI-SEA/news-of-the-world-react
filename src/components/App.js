@@ -12,12 +12,30 @@ const apiKey = process.env.REACT_APP_API_KEY
 
 export default function App() {
   const [articles, setArticles] = useState([])
-  const articleUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`
+  const [search, setSearch] = useState('')
 
+  const headlineArticlesUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`
+  // const searchedArticlesUrl = `https://newsapi.org/v2/everything?q=${search}&apiKey=${apiKey}`
+
+  const handleChange = e => {
+      setSearch(e.target.value)
+  }
+
+  const getFilteredArticles = (e) => {
+    const searchTerm = search.toLowerCase()
+    return articles.filter(article => {
+      const lowerCaseTitle= article.title.toLowerCase()
+      return lowerCaseTitle.includes(searchTerm)
+    })
+  }
+  // const handleSubmit = e => {
+  //     e.preventDefault()
+  //     displaySearchedArticles()
+  // }
   useEffect(() => {
     const displayAllArticles = async () => {
       try {
-        const results = await axios.get(articleUrl)
+        const results = await axios.get(headlineArticlesUrl)
         // console.log('this is results',results)
         const articles = results.data.articles
         // console.log('this is articles',articles)
@@ -25,17 +43,43 @@ export default function App() {
       } catch (error) {
         console.log(error)
       }
-
     }
     displayAllArticles()
-  }, [articleUrl])
+  }, [headlineArticlesUrl])
+
+  // const displaySearchedArticles = async () => {
+  //   try {
+  //     const results = await axios.get(searchedArticlesUrl)
+  //     // console.log('this is results',results)
+  //     const articles = results.data.articles
+  //     // console.log('this is articles',articles)
+  //     setArticles(articles)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
+
   return (
     <div className="App">
       <Header />
       <main>
         <Routes>
-          <Route path="/" element={<Landing  articles={articles}/>} />
-          <Route path="/article/:id" element={<Display articles={articles}/>} />
+          <Route path="/" element={
+          <Landing  
+          articles={getFilteredArticles()}
+          // searchedArticles={displaySearchedArticles()}
+          search={search}
+          handleChange={handleChange}
+          // handleSubmit={handleSubmit}
+          />
+          } />
+          <Route path="/article/:id" 
+          element={
+          <Display 
+          articles={articles}
+          />
+          } />
         </Routes>
       </main>
     </div>
