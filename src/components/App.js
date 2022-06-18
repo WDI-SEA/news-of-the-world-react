@@ -11,6 +11,18 @@ const apiKey = process.env.REACT_APP_NEWS_API_KEY
 
 export default function App() {
   const [article, setArticles] = useState([])
+  const [favs, setFavs] = useState([])
+  const handleFavArticle = (article) => {
+    if (!favs.includes(article)) {
+      setFavs([...favs, article])
+    }
+  }
+  const handleRemoveFavArticle = (article) => {
+    let favorites = [...favs]
+    const artIndex = favorites.indexOf(article)
+    favorites.splice(artIndex, 1)
+    setFavs(favorites)
+  }
   const articleUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`
   useEffect(() => {
     fetch(articleUrl)
@@ -20,14 +32,16 @@ export default function App() {
       })
   }, [])
   return (
-    <div className="App">
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Landing articles={article} />} />
-          <Route path="/display/:id" element={<Display articles={article} />} />
-        </Routes>
-      </main>
-    </div >
+    <>
+      <div className="App">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Landing articles={article} handleFavArticle={handleFavArticle} handleRemove={handleRemoveFavArticle} favs={favs} />} />
+            <Route path="/display/:id" element={<Display articles={article} />} />
+          </Routes>
+        </main>
+      </div >
+    </>
   )
 }
