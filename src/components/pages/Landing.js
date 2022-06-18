@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom"
 
 function Landing({articles, handleChange, search, faves}) {
+    
     const showArticles = articles.map((article,i)=>{
         return (
             <div>
@@ -17,6 +18,7 @@ function Landing({articles, handleChange, search, faves}) {
             </div>
         )
     })
+
     return (
         <>
         {faves.length === 0 ? "" :

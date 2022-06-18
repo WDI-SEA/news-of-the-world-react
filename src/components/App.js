@@ -9,6 +9,7 @@ import Landing from './pages/Landing';
 import Header from './pages/Header';
 
 function App() {
+
   const [articles,setArticles] = useState([])
   const [search, setSearch] = useState("")
   const [faves, setFaves] = useState([])
@@ -17,14 +18,13 @@ function App() {
     setSearch(e.target.value)
   }
 
-  const handleFavoriteArticle = (e) => {
-    const article = JSON.parse(e.target.value)
+  const handleFavoriteArticle = (article) => {
     if (!faves.includes(article)){
       setFaves([...faves, ...[article]])
     }
   }
 
-  const getFilteredNews = (e) => {
+  const getFilteredNews = () => {
     let searchTerm = search.toLowerCase()
     return articles.filter(v => {
       let lowerCaseName = v.title.toLowerCase()
@@ -67,7 +67,7 @@ function App() {
             <Route path="/favorites/:id" element={<Display
               articles = {faves}
             />} />
-            
+
           </Routes>
       </main>
     </div>
