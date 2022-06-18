@@ -1,6 +1,5 @@
 import React from "react";
 import {useParams} from 'react-router-dom'
-import {useState, useEffect} from 'react'
 
 function Display(props) {
     const { id } = useParams()
@@ -19,9 +18,10 @@ function Display(props) {
         <h1>Current Article</h1>
         <h2>{articleDetails.title}</h2>
         <h3>{articleDetails.author}</h3>
-        <a href={`${articleDetails.url}`}><img src={articleDetails.urlToImage} width= '600px' /></a>
+        <a href={`${articleDetails.url}`}>  <img src={articleDetails.urlToImage} width= '600px'/> </a>
         <p>{articleDetails.description}</p>
-       
+        <button value={JSON.stringify(articleDetails)} 
+        onClick={props.handleFavorite}>Add to favorites</button>
         </>
     )
 }
