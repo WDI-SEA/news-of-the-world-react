@@ -1,8 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
-import '../App.css';
+import { Routes, Route } from "react-router-dom"
+import "../App.css"
 
-import Display from './pages/Display';
-import Landing from './pages/Landing';
+import TopStories from "./pages/TopStories"
+import Landing from "./pages/Landing"
 
 function App() {
   return (
@@ -10,11 +10,11 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/display" element={<Display />} />
+          <Route path="/top" element={<TopStories />} />
         </Routes>
       </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
