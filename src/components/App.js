@@ -1,15 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
 import '../App.css';
 
-import {  useEffect } from 'react'
+import {  useState, useEffect } from 'react'
 import Display from './pages/Display';
 import Landing from './pages/Landing';
 import axios from 'axios'
 function App() {
    // state setting for articles
-  //  const [articles, setArticles] = useState([])
+  //  const [displayedArticle, setDisplayedArticle] = useState({})
+   const [articles, setArticles] = useState([])
   
-  console.log(process.env.REACT_APP_API_KEY)
+  // console.log(process.env.REACT_APP_API_KEY)
   useEffect(() => {
     
     (async () => {
@@ -17,7 +18,7 @@ function App() {
         const worldNews = `https://newsapi.org/v2/everything?q=apple&from=2022-06-17&to=2022-06-17&sortBy=popularity&apiKey=${process.env.REACT_APP_API_KEY}`;
         const res = await axios.get(worldNews)
         console.log(res.data)
-        // setArticles(res.data.articles)
+        setArticles(res.data.articles)
       } catch (err) {
         console.warn(err)
       }
@@ -28,12 +29,18 @@ function App() {
     <div className="App">
       <main>
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/display" element={<Display />} />
+          <Route path="/" element={
+          <Landing articles={articles} />
+          } 
+          />
+          <Route path="/articles/:id" element={
+          <Display articles={articles}/>
+          } 
+          />
         </Routes>
       </main>
     </div>
   );
 }
 
-export default App;
+export default App

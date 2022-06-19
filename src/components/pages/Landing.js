@@ -1,8 +1,23 @@
 import React from "react";
-
-function Landing() {
+import { Link } from "react-router-dom";
+function Landing({ articles }) {
+    const articleList = articles.map((article, id) => {
+        return (
+            <div
+                key={`article-link${id}`}>
+                <Link to={`/articles/${id}`}>
+                    {article.title}
+                </Link>
+            </div>
+        )
+    })
     return (
-        <h1>Landing Page</h1>
+        <div>
+
+            <h1>Landing Page</h1>
+
+            {articleList}
+        </div>
     )
 }
 
