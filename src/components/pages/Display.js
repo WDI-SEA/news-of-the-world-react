@@ -1,9 +1,23 @@
-import React from "react";
+import {Link, useParams} from 'react-router-dom'
 
-function Display() {
+
+export default function ArticleDetails (props) {
+    const { id } = useParams()
+    const articleIndex = Number(id)
+    const article = props.articles[articleIndex] ? props.articles[articleIndex] : 'NOTHING HERE'
+    console.log(article)
+
+   
+
     return (
-        <h1>Display Page</h1>
+        <div className="article-details-container">
+            <h2>{article.title}</h2>
+            <h4>{article.author}</h4>
+            <p>{article.description}</p>
+            <a href={article.url}>Link</a>
+            <img className="article-image" src={article.urlToImage}></img>
+            <button onClick={() => props.handleSaveArticle(article)  }>Save this article </button>
+            <Link to='/'>Back to Search</Link>
+        </div>
     )
 }
-
-export default Display;
