@@ -14,8 +14,8 @@ export default function ArticleDetails (props) {
             <h2>{article.title}</h2>
             <h4>{article.author}</h4>
             <p>{article.description}</p>
-            <a href={article.url}>Link</a>
-            <img className="article-image" src={article.urlToImage}></img>
+            <a href={article.url}>Article Link</a><br></br>
+            <img className="article-image" src={article.urlToImage}></img><br></br>
             <button onClick={() => props.handleSaveArticle(article)  }>Save this article </button>
             <Link to='/'>Back to Search</Link>
         </div>

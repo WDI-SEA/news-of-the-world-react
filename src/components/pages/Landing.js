@@ -18,24 +18,33 @@ function Landing(props) {
     })
     return (
         <div className='articles'>
-            <div className="articles-container">
-                <h1>Articles</h1>
-                <label htmlFor='search'>Search for Articles</label>
-                <form onSubmit={props.handleSearchSubmit}>
-                <input
-                    name='search' 
-                    type='text'
-                    value={props.search}
-                    onChange={props.handleSearchChange}
-                />
-                <input type='submit'/>
-                </form>
-                
-                {articles}
-                <button onClick={props.handlePageIncrement}>Next Page</button>
-                <button onClick={props.handlePageDecrement}>Previous Page</button>
+            <div className='results'>
+                <div className="articles-header">
+                    <h1>Search</h1>
+                    <form onSubmit={props.handleSearchSubmit}>
+                        <div className='search-container'>
+                            <label htmlFor='search' hidden>Search for Articles</label>
+                            <input
+                                name='search' 
+                                type='text'
+                                value={props.search}
+                                onChange={props.handleSearchChange}
+                                placeholder='news...'
+                            />
+                            <input type='submit'/>
+                        </div>
+                    </form>
+                </div>
+                <div className='content'>
+                    
+                    {articles}
+                    <button onClick={props.handlePageDecrement}>Previous Page</button>{' | '}
+                    <button onClick={props.handlePageIncrement}>Next Page</button>
+                </div>
             </div>
-            <div className='saved-articles-container'>
+            <hr></hr>
+            <div className='saved'>
+                <h1>Saved</h1>    
                 {savedArticles}
             </div>
         </div>
