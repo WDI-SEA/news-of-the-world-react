@@ -53,6 +53,11 @@ function App() {
       }
       fetchSearch()
   }
+  const [fave, setFave] = useState([])
+  function handleFavorite(e) {
+    console.log(e)
+    setFave([...fave, e])
+  }
   return (
     <div className="App">
       <main>
@@ -64,6 +69,7 @@ function App() {
           />} />
           <Route path="/display" element={<Display 
           headlines = {current}
+          handleFavorite = {handleFavorite}
           />} />
           <Route path="/search" element={<Search 
           handleChange={handleChange}
@@ -71,7 +77,9 @@ function App() {
           handleHeadlineClick={handleHeadlineClick}
           result={result}
           />} />
-          <Route path="/favorite" element={<Favorite />} />
+          <Route path="/favorite" element={<Favorite 
+          faves = {fave}
+          />} />
         </Routes>
       </main>
     </div>

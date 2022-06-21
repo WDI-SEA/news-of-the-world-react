@@ -6,7 +6,7 @@ function Header() {
         <>
             <Link to='/'>Top Head Lines</Link>{' | '}
             <Link to='/search'>Search</Link>{' | '}
-            <Link to='/favorites'>Favorites</Link>
+            <Link to='/favorite'>Favorites</Link>
         </>
     )
 }
