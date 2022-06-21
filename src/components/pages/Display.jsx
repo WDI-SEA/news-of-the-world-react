@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 
 
-const ArticleDetails = (props) => {
+const Display = (props) => {
 
     const { id } = useParams()
     const article = props.articles[id]
@@ -22,4 +22,4 @@ const ArticleDetails = (props) => {
     )
 }
 
-export default ArticleDetails
+export default Display

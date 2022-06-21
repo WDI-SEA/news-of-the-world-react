@@ -20,12 +20,12 @@ const App = () => {
   const topHeadlinesUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`
   
   
-  const handleChange = e => {
+  const handleChange = (e) => {
       setSearch(e.target.value)
   }
 
   // search submit & display search results
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
       e.preventDefault()
       displaySearched()
   }
@@ -52,8 +52,8 @@ const App = () => {
   
   
   useEffect(() => {
-    
-    const displayAllArticles = async () => {
+
+    const displayAllArticles = async() => {
       try {
 
         const results = await axios.get(topHeadlinesUrl)
@@ -69,7 +69,7 @@ const App = () => {
     displayAllArticles()
   }, [topHeadlinesUrl])
   
-  const displaySearched = async () => {
+  const displaySearched = async() => {
     const searchedArticlesUrl = `https://newsapi.org/v2/everything?q=${search}&apiKey=${apiKey}`
     try {
 
@@ -82,7 +82,6 @@ const App = () => {
       console.log('search error ☠︎', error)
     }
   }
-
 
   return (
     <div className="App">
