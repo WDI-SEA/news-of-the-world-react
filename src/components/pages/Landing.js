@@ -1,9 +1,7 @@
 import React from "react";
 
-function Landing() {
-    return (
-        <h1>Landing Page</h1>
-    )
+function Landing(props) {
+  return <p>{articles}</p>;
 }
 
 export default Landing;

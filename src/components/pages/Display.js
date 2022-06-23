@@ -1,9 +1,12 @@
 import React from "react";
 
-function Display() {
-    return (
-        <h1>Display Page</h1>
-    )
+function Display(props) {
+  return (
+    <div>
+      <h1>Article</h1>
+      <p>{article.title}</p>
+    </div>
+  );
 }
 
 export default Display;
