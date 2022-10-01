@@ -10,16 +10,7 @@ function Landing(props) {
    
     return (
         <div>
-            <form onSubmit={props.handleSubmit}>
-                <input type ="text"
-                    name="search"
-                    // onChange={props.handleChange}
-                    // value={props.search} 
-                    />
-
-                <button type="submit">Search</button>
-            </form>
-            
+           list of news items goes here
         </div>
     )
 }
