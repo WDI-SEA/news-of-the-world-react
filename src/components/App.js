@@ -21,6 +21,7 @@ function App() {
       try{
           const response = await axios.get(url)
           setHeadlines(response.data.articles)
+         
 
       }catch(error){
           console.log(error)
@@ -51,7 +52,7 @@ function App() {
 
         <button type="submit">Search</button>
         </form>
-          {headlines}
+      
         <div>
           <Routes>
             <Route path="/" element={<Landing />} />
