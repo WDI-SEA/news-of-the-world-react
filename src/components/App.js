@@ -3,6 +3,7 @@ import '../App.css';
 
 import Display from './pages/Display';
 import Landing from './pages/Landing';
+import Article from './pages/Article';
 
 import axios from 'axios'
 import { useEffect, useState } from 'react';
@@ -37,6 +38,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/display" element={<Display articles={articles}/>} />
+          <Route path='display/:id' element={<Article />} />
         </Routes>
       </main>
     </div>
