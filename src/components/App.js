@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from 'react-router-dom';
-import '../App.css';
 import Display from './pages/Display';
 import Landing from './pages/Landing';
 
@@ -58,7 +57,7 @@ function App() {
     }
   }
   return (
-    <div className="App">
+    <div>
       <main>
         <Routes>
           <Route path="/" 
