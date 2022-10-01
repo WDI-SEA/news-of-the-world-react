@@ -4,7 +4,14 @@ import '../App.css';
 import Display from './pages/Display';
 import Landing from './pages/Landing';
 
-function App() {
+import axios from 'axios'
+
+
+export default function App() {
+
+  const api_key = process.env.REACT_APP_NEWS_API_KEY
+  console.log(api_key)
+  
   return (
     <div className="App">
       <main>
@@ -17,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+
