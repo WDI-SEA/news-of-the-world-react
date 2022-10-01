@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import '../App.css';
 
+
 import Display from './pages/Display';
 import Landing from './pages/Landing';
 
