@@ -36,7 +36,7 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/display" element={<Display />} />
+          <Route path="/display" element={<Display articles={articles}/>} />
         </Routes>
       </main>
     </div>

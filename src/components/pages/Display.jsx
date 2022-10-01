@@ -1,8 +1,20 @@
 import React from "react";
 
-function Display() {
+function Display(props) {
+
+    const articleComponents = props.articles.map((article, i) => {
+        return (
+            <li key={`article-${i}`}>
+                {article.title}
+            </li>
+        )
+    })
+
     return (
-        <h1>Display Page</h1>
+        <div>
+            <h1>Display Page</h1>
+            <ol>{articleComponents}</ol>
+        </div>
     )
 }
 
