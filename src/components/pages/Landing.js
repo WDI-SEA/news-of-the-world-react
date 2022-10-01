@@ -1,24 +1,12 @@
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-function Landing() {
-    const [articles, setArticles] = useState([{title: "loading articles..."}]);
-    useEffect(() => {
-        const getArticles = async () => {
-            try {
-                const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`);
-                const articleData = await response.json();
-                setArticles(articleData.articles);
-            }
-            catch (error) {
-                console.warn(error);
-            }
-        }
-        getArticles();
-    }, []);
-    const articleComponents = articles.map((article, index) => {
+function Landing(props) {
+    const articleComponents = props.articles.map((article, index) => {
         return (
             <div key={`article-${index}`}>
-                <h2>{article.title}</h2>
+                <Link to={`/articles/${index}`}>
+                    <h2>{article.title}</h2>
+                </Link>
             </div>
         );
     });
