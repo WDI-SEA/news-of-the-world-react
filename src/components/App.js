@@ -5,10 +5,13 @@ import Display from './pages/Display';
 import Landing from './pages/Landing';
 
 import axios from 'axios'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export default function App() {
+
+  
+  let [articles, setArticles]  = useState([])
 
   const api_key = process.env.REACT_APP_NEWS_API_KEY
   // console.log(api_key)
@@ -20,9 +23,13 @@ export default function App() {
     axios.get(url)
       .then(response => {
         console.log(response.data)
+        console.log(response.data.articles)
+        setArticles(response.data.articles)
       })
       .catch(console.warn)
-  })
+  }, []) // empty dependency array (will make the useEffect run only on the first render!)
+
+  console.log(articles)
 
   return (
     <div className="App">
