@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 
+
 export default function Landing(props) {
 
     const results = props.results.map((article, i) => {
@@ -19,6 +20,9 @@ export default function Landing(props) {
     return (
         <div>
             <h1>Landing Page</h1>
+            <form className="searchContainer" onSubmit={props.handleSubmit}>
+                <input type="text" name="search" className="searchBar" placeholder='SEARCH' onChange={props.handleChange} value={props.search} />
+            </form>
             {results}
         </div>
     )

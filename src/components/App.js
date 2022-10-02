@@ -1,20 +1,25 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import '../App.css';
 
 import Display from './pages/Display';
 import Landing from './pages/Landing';
+
 
 export default function App() {
 
   // search input
   const [search, setSearch] = useState('')
   // api data
-  const [toApi, setApi] = useState('business')
+  const [toApi, setApi] = useState('news')
   // set data
   const [data, setData] = useState({targetSearch: []})
   // favorited articles
   const [faves, setFaves] = useState([])
+
+  const handleChange = (e) => {
+    setSearch(e.target.value)
+  }
 
   useEffect(() => {
     document.title = "News Search App"
@@ -27,6 +32,8 @@ export default function App() {
         })
       }, [toApi])  
 
+
+
   const handleSubmit = (e) => {
     e.preventDefault()
     setApi(search)
@@ -36,16 +43,16 @@ export default function App() {
   return (
     <div className="App">
       <main>
-        <BrowserRouter>
-          <div>
-            <h1>WorldMedia News</h1>
-          </div>
+          <BrowserRouter>
+            <div>
+              <h1>WorldMedia News</h1>
+            </div>
+            <Routes>
+              <Route path="/" element={<Landing handleChange={handleChange} handleSubmit={handleSubmit} results={data.targetSearch} />} />
+              <Route path="/details/:id" element={<Display articles={data.targetSearch} />} />
+            </Routes>
+          </BrowserRouter>
 
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/display/:id" element={<Display />} />
-          </Routes>
-        </BrowserRouter>
       </main>
     </div>
   );
