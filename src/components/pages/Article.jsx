@@ -13,6 +13,7 @@ export default function Article(props) {
             {/* <p>{article.content}</p> */}
             <p>{article.description}</p>
             <p>{article.author ? article.author : null}</p>
+            <p>Source: {article.source.name}</p>
             <a href={article.url}>Full Article</a> | <Link to='/'>Home</Link>
             <br></br>
             <br></br>
