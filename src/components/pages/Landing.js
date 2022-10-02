@@ -1,8 +1,20 @@
 import React from "react";
 
-function Landing() {
+function Landing(props) {
+    const popularArticles = props.articles.map((article, id)=> {
+        return(
+            <div key={`article${id}`}>
+                <img src={article.urlToImage} width='300px'></img>
+                <h1>{article.title}</h1>
+                <p>Written by: {article.author} {article.publishedAt}</p>
+                <p>{article.content}</p>
+            </div>
+        )
+    })
     return (
-        <h1>Shows all recent news articles, or filtered list based on what user searches</h1>
+        <div>
+        {popularArticles}
+        </div>
     )
 }
 
