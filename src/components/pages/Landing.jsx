@@ -18,7 +18,7 @@ function Landing(props) {
 
     return (
         <div>
-            <h1>Landing Page</h1>
+            <h1>News</h1>
             {articleComponents}
         </div>
 
