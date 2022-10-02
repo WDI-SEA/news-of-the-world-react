@@ -102,6 +102,7 @@ function App() {
                 input={input} 
                 getSearchResults={getSearchResults} 
                 handleFilterClick={handleFilterClick}
+                filter={filter}
               />
             } 
           />

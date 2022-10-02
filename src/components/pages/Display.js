@@ -20,7 +20,7 @@ function Display(props) {
                 <h3 className="text-xl">Author: {article.author}</h3>
                 <h3 className="text-xl">{dateSplit[0]}</h3>
             </div>
-            <img src={article.urlToImage} alt={`${article.title} cover photo`} className="mt-2 rounded-lg shadow-xl" />
+            <img src={article.urlToImage} alt={`${article.title} cover photo`} className="mt-2 rounded-lg shadow-xl self-center" />
             <SaveButton 
                 article={article}
                 isSaved={isSaved}

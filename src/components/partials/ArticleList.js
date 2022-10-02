@@ -17,7 +17,7 @@ function ArticleList(props) {
         articleComponents = <h2>Nothing to show or no results</h2>;
     }
     return (
-        <div className="w-6/12 flex flex-col gap-2">
+        <div className="mt-2 w-6/12 flex flex-col gap-2">
             {articleComponents}
         </div>
     );
