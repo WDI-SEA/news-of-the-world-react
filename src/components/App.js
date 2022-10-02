@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import '../App.css';
 import Favorite from './pages/Favorite'
 import Display from './pages/Display';
@@ -12,32 +12,36 @@ import { useState, useEffect } from 'react';
 function App() {
   let [news, setNews] = useState([])
   let [search, setSearch] = useState("")
+  let [state, setState] = useState("")
+
+
+  useEffect(() => {
+    // fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${KEY.api_key}`)
+    fetch(`https://newsapi.org/v2/everything?q=biden&apiKey=${KEY.api_key}`)
+      .then(response => response.json())
+      .then((rdata) => {
+        rdata = Object.values(rdata)
+        setNews([rdata[0], rdata[2]])
+        console.log("Data:", rdata[2])
+      })
+      .catch(err => console.warn(err))
+  }, [])
+
+
+  const handleChange = (e) => {
+    setState(e.target.value)
+    console.log(state)
+  }
+
 
   const handleClick = (e) => {
-    
-    console.log(search)
-  }
 
-  const navigate = useNavigate()
-
-  const onClick = e => {
-    setSearch(e.target.value)
-    navigate(`?search=${search}`)
+    setSearch(state)
     e.preventDefault()
     console.log(search)
+
+
   }
-
-
-  // useEffect(() => {
-  //   fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${KEY.api_key}`)
-  //     .then(response => response.json())
-  //     .then((data) => {
-  //       data = Object.values(data)
-  //       setNews([data])
-  //       console.log("Data:", data)
-  //     })
-  //     .catch(err => console.warn(err))
-  // }, [])
 
 
   return (
@@ -45,7 +49,7 @@ function App() {
       <main>
         <Header />
         <Routes>
-          <Route path="/" element={<Landing search={search} onClick={onClick} />} />
+          <Route path="/" element={<Landing search={search} state={state} handleChange={handleChange} handleClick={handleClick} news={news} />} />
           <Route path="/articles/:articleId" element={<Display />} />
           <Route path="/favorites" element={<Favorite />} />
         </Routes>
