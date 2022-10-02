@@ -71,8 +71,21 @@ function App() {
         break;
     }
   }
-  const handleSaveClick = article => {
-    setSavedArticles([...savedArticles, article]);
+  const handleSaveClick = (article, isSaved) => {
+    switch (isSaved) {
+      case true:
+        const index = savedArticles.indexOf(article);
+        const newSaved = savedArticles;
+        newSaved.splice(index, 1);
+        setSavedArticles(newSaved);
+        break;
+      case false:
+        setSavedArticles([...savedArticles, article]);
+        break;
+      default:
+        console.log("This is not possible");
+        break;
+    }
   }
   return (
     <div className="mt-3 mb-5">
@@ -93,6 +106,7 @@ function App() {
             element={
               <Display 
                 articles={articles}
+                savedArticles={savedArticles}
                 handleSaveClick={handleSaveClick}
               />
             } 
