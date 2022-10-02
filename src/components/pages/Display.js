@@ -14,7 +14,7 @@ function Display(props) {
                 <h3 className="text-xl">{dateSplit[0]}</h3>
             </div>
             <img src={article.urlToImage} className="mt-2 rounded-lg shadow-xl" />
-            <button className="self-end mt-2 border rounded-lg px-2 py-1 bg-blue-500 hover:bg-blue-700">Add to favorites</button>
+            <button className="self-end mt-2 border rounded-lg px-2 py-1 bg-blue-500 hover:bg-blue-700">Save</button>
             <p className="mt-2">{article.description}</p>
         </div>
     )

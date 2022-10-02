@@ -4,8 +4,8 @@ function FilterButtons(props) {
             <button onClick={() => props.handleFilterClick("all")} className="hover:text-gray-700">
                 All
             </button>
-            <button onClick={() => props.handleFilterClick("favorites")} className="hover:text-gray-700">
-                Favorites
+            <button onClick={() => props.handleFilterClick("saved")} className="hover:text-gray-700">
+                Saved
             </button>
         </div>
     );

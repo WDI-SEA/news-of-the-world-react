@@ -31,13 +31,13 @@ const articleArray = [
 function App() {
   const [input, setInput] = useState("");
   const [articles, setArticles] = useState(articleArray);
-  const [favArticles, setFavArticles] = useState([]);
+  const [savedArticles, setSavedArticles] = useState([]);
   useEffect(() => {
     getArticles();
   }, []);
   const getArticles = async () => {
     try {
-      // gets recent 20 popular articles
+      // gets recent 20 popular articles from the US
       const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`);
       const articleData = await response.json();
       setArticles(articleData.articles);
@@ -63,8 +63,8 @@ function App() {
       case "all":
         input ? getSearchResults(input) : getArticles();
         break;
-      case "favorites":
-        setArticles(favArticles);
+      case "saved":
+        setArticles(savedArticles);
         break;
       default:
         console.log("No matching filter category");
