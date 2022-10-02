@@ -32,6 +32,7 @@ function App() {
   const [input, setInput] = useState("");
   const [articles, setArticles] = useState(articleArray);
   const [savedArticles, setSavedArticles] = useState([]);
+  const [filter, setFilter] = useState("all");
   useEffect(() => {
     getArticles();
   }, []);
@@ -61,9 +62,11 @@ function App() {
   const handleFilterClick = filter => {
     switch(filter) {
       case "all":
+        setFilter("all");
         input ? getSearchResults(input) : getArticles();
         break;
       case "saved":
+        setFilter("saved");
         setArticles(savedArticles);
         break;
       default:
@@ -108,6 +111,7 @@ function App() {
                 articles={articles}
                 savedArticles={savedArticles}
                 handleSaveClick={handleSaveClick}
+                filter={filter}
               />
             } 
           />

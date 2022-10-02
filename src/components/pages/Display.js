@@ -26,6 +26,7 @@ function Display(props) {
                 isSaved={isSaved}
                 setIsSaved={setIsSaved}
                 handleSaveClick={props.handleSaveClick}
+                filter={props.filter}
             />
             <p className="mt-2">{article.description}</p>
         </div>
