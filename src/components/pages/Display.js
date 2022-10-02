@@ -9,6 +9,7 @@ function Display(props) {
         <div>
             <h1>News</h1>
             <SearchBar search={props.search} handleChange={props.handleChange} setArticles={props.setArticles}/>
+            <button onClick={() => props.setFaves([...props.faves, article])}>Save this Article</button>
             <ul>
             <h3>{article.title}</h3>
             <p>Source: {article.source.name} Date: {article.publishedAt}</p>

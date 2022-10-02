@@ -11,6 +11,8 @@ import Landing from './pages/Landing';
 function App() {
   const [search, setSearch] = useState('')
   const [articles, setArticles] = useState([])
+  const [faves, setFaves] = useState([])
+  const [filter, setFilter] = useState('')
 
   useEffect(() => {
       const API_KEY = process.env.REACT_APP_NEWS_API_KEY
@@ -38,8 +40,8 @@ function App() {
     <div className="App">
       <main>
         <Routes>
-          <Route path="/" element={<Landing search={search} setSearch={setSearch} articles={articles} setArticles={setArticles} handleChange={handleChange} />} />
-          <Route path="/articles/:id" element={<Display search={search} setSearch={setSearch} articles={articles} setArticles={setArticles} handleChange={handleChange}/>} />
+          <Route path="/" element={<Landing search={search} setSearch={setSearch} articles={articles} setArticles={setArticles} handleChange={handleChange} faves={faves} setFaves={setFaves} filter={filter} setFilter={setFilter}/>} />
+          <Route path="/articles/:id" element={<Display search={search} setSearch={setSearch} articles={articles} setArticles={setArticles} handleChange={handleChange} faves={faves} setFaves={setFaves} filter={filter} setFilter={setFilter}/>} />
         </Routes>
       </main>
     </div>
