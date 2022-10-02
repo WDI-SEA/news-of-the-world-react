@@ -1,20 +1,23 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { useState } from 'react'
 import '../App.css';
 
 import Display from './pages/Display';
 import Landing from './pages/Landing';
 
 
+
 function App() {
+
+
+
   return (
-    <div className="App">
-      <main>
+    <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/display" element={<Display />} />
         </Routes>
-      </main>
-    </div>
+    </BrowserRouter>
   );
 }
 
