@@ -36,9 +36,9 @@ export default function App() {
     <div className="App">
       <main>
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={<Landing articles={articles}/>} />
           <Route path="/display" element={<Display articles={articles}/>} />
-          <Route path='display/:id' element={<Article />} />
+          <Route path='display/:id' element={<Article articles={articles}/>} />
         </Routes>
       </main>
     </div>
