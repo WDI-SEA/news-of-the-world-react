@@ -71,6 +71,9 @@ function App() {
         break;
     }
   }
+  const handleSaveClick = article => {
+    setSavedArticles([...savedArticles, article]);
+  }
   return (
     <div className="mt-3 mb-5">
       <main>
@@ -86,7 +89,14 @@ function App() {
               />
             } 
           />
-          <Route path="/articles/:articleId" element={<Display articles={articles}/>} />
+          <Route path="/articles/:articleId" 
+            element={
+              <Display 
+                articles={articles}
+                handleSaveClick={handleSaveClick}
+              />
+            } 
+          />
         </Routes>
       </main>
     </div>
