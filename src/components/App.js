@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from 'react-router-dom';
+import Header from "./partials/Header";
 import Display from './pages/Display';
 import Landing from './pages/Landing';
 
@@ -71,8 +72,9 @@ function App() {
     }
   }
   return (
-    <div>
+    <div className="mt-3 mb-5">
       <main>
+        <Header />
         <Routes>
           <Route path="/" 
             element={
