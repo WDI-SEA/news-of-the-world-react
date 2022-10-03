@@ -15,6 +15,8 @@ export default function App() {
   // let [articles, setArticles]  = useState([])
   // response from API
   const [apiResponse, setApiResponse] = useState([])
+  // save to read later
+  const [readLater, setReadLater] = useState([])
   // controlled input
   const [inputValue, setInputValue] = useState('')
   // what to search in the api
@@ -61,7 +63,9 @@ export default function App() {
               apiResponse={apiResponse}
               inputValue={inputValue}
               setInputValue={setInputValue}
-              setSearch={setSearch} />} />
+              setSearch={setSearch}
+              readLater={readLater}
+              setReadLater={setReadLater} />} />
           <Route path="/display/:id" element={<Display apiResponse={apiResponse}/>} />
          
         </Routes>
