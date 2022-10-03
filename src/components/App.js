@@ -26,7 +26,7 @@ export default function App() {
 
   useEffect(() => {
     document.title = "News Search App"
-    const url = `https://newsapi.org/v2/everything?q=${toApi}&from=2022-09-01&sortBy=publishedAt&apiKey=${API_KEY}`
+    const url = `https://newsapi.org/v2/everything?q=${toApi}&from=2022-09-02&sortBy=publishedAt&apiKey=${API_KEY}`
       fetch(url)
         .then(response => response.json())
         .then(rData => {
@@ -34,8 +34,6 @@ export default function App() {
             console.log(rData)
         })
       }, [toApi])  
-
-
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -51,7 +49,8 @@ export default function App() {
               </div>
 
               <Routes>
-                <Route path="/" element={<Landing handleChange={handleChange} handleSubmit={handleSubmit} results={data.targetSearch} />} />
+                <Route path="/" element={<Landing handleChange={handleChange} handleSubmit={handleSubmit} results={data.targetSearch} />} 
+                />
                 <Route path="/details/:id" element={<Display articles={data.targetSearch} />} />
               </Routes>  
             </>
