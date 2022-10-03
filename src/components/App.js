@@ -9,20 +9,16 @@ import Landing from './pages/Landing';
 function App() {
    // states
    const [headlines, setHeadlines] = useState([])
-   const [search, setSearch] = useState(" ")
 
    const api_key= process.env.REACT_APP_API_KEY
    const url =`https://newsapi.org/v2/top-headlines?country=us&apiKey=${api_key}`
-  //  const searchUrl =`https://newsapi.org/v2/everything?q=${userQuery}&apiKey=${App}`
-  //  const userQuery= " "
-
+ 
+  // get popoular headlines
    useEffect(()=>{
     async function getHeadlines(){
       try{
           const response = await axios.get(url)
           setHeadlines(response.data.articles)
-         
-
       }catch(error){
           console.log(error)
       }
@@ -30,20 +26,19 @@ function App() {
     getHeadlines()
   }, [])
    
+  // maps headlines to display on front page
    const displayHeadlines= headlines.map((headline, i)=>{
     return(
       
-      <Landing
-      key= {`headline-${i}`}
-      title ={headline.title}
-      description ={headline.description}
-      />
-      
+      <li key= {`headline-${i}`} style={{listStyleType: "none"}}>
+        title ={headline.title}
+        description ={headline.description}
+      </li> 
     )
    })
   return (
     <div>
-        <form>
+        <form> //form for user to enter search query
         <input type ="text"
             name="search"
             // onChange={handleChange}
@@ -52,12 +47,15 @@ function App() {
 
         <button type="submit">Search</button>
         </form>
-      
+
         <div>
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/display" element={<Display />} />
           </Routes>
+        <div>
+          <ul> {displayHeadlines}</ul>
+        </div>
         </div>
       </div>
   );
