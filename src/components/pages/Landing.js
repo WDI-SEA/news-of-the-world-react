@@ -41,7 +41,7 @@ function Landing(props) {
     })
     
     return (
-        <>
+        <div style={{display: 'flex'}}>
         <div>
             <h1>Top Headlines</h1>
 
@@ -57,7 +57,7 @@ function Landing(props) {
                 {displaySaved.length > 0 ? displaySaved : "No saved articles"}
             </ol>
         </div>
-        </>
+        </div>
     )
 }
 
