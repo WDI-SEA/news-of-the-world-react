@@ -32,22 +32,12 @@ function App() {
       
       <li key= {`headline-${i}`} style={{listStyleType: "none"}}>
         title ={headline.title}
-        description ={headline.description}
+        {/* description ={headline.description} */}
       </li> 
     )
    })
   return (
     <div>
-        <form> //form for user to enter search query
-        <input type ="text"
-            name="search"
-            // onChange={handleChange}
-            // value={search} 
-            />
-
-        <button type="submit">Search</button>
-        </form>
-
         <div>
           <Routes>
             <Route path="/" element={<Landing />} />

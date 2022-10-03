@@ -1,9 +1,23 @@
 import React from "react";
 
-function Display() {
-    return (
-        <h1>Display Page</h1>
-    )
-}
+export default function Display(props) {
 
-export default Display;
+
+    //  fxn to return and map news items
+const displayResults= searchResults.map((searchResult, i)=>{
+    return(
+      
+      <li key= {`result-${i}`} style={{listStyleType: "none"}}>
+        title ={searchResult.title}
+        description ={searchResult.description}
+        url = {searchResult.url}
+      </li> 
+    )
+    return (
+        <div>
+        <h1>Display Page</h1>
+        <ul> {displayResults} </ul>
+        </div>
+    )
+})
+}
