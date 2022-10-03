@@ -5,7 +5,7 @@ function Landing(props) {
     const articles = props.apiResponse.map((article, i) => {
         return (
             <div key={`article-${i}`}>
-                <Link to={`/details/${i}`}>
+                <Link to={`/display/${i}`}>
                     <h2>{article.title}</h2>
 
                     <p>{article.description}</p>

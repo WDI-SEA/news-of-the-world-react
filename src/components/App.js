@@ -3,7 +3,7 @@ import '../App.css';
 
 import Display from './pages/Display';
 import Landing from './pages/Landing';
-import Article from './pages/Article';
+
 
 import axios from 'axios'
 import { useEffect, useState } from 'react';
@@ -62,8 +62,8 @@ export default function App() {
               inputValue={inputValue}
               setInputValue={setInputValue}
               setSearch={setSearch} />} />
-          <Route path="/display" element={<Display apiResponse={apiResponse}/>} />
-          <Route path='display/:id' element={<Article apiResponse={apiResponse}/>} />
+          <Route path="/display/:id" element={<Display apiResponse={apiResponse}/>} />
+         
         </Routes>
       </main>
     </div>

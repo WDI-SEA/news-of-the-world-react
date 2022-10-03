@@ -1,25 +1,22 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 function Display(props) {
-
-    const articleComponents = props.apiResponse.map((article, i) => {
-        if (article) {
-            return (
-                <div key={`article-${i}`}>
-                    <Link to={`/display/${i}`}>
-                        <h3>{article.title}</h3>
-                    </Link>
-                </div>
-            )
-
-        }
-    })
+    const { id } = useParams()
+    const article = props.apiResponse[id]
+    console.log(article)
 
     return (
         <div>
-            <h1>News</h1>
-            {articleComponents}
+            <h1>Display Page</h1>
+            <h2>{article.title}</h2>
+
+            <p>by: {article.author}</p>
+
+            <img src={article.urlToImage} alt={article.title} />
+
+            <p>{article.content}</p>
+            
         </div>
 
     )
