@@ -8,36 +8,29 @@ import Landing from './pages/Landing';
 
 
 function App() {
+  const [apiResponse, setApiResponse] = useState([])
+  //controlled input
+  const[inputValue, setInputValue] = useState('')
+  //what to search for on the API
+  const [search, setSearch] = useState('programming')
 
-const [data, setData] = useState({articles: []})
-const [search, setSearch] = useState('')
-
-useEffect(() => {
-  fetch(`https://newsapi.org/v2/everything?q=${value}&sortBy=popularity&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`)
-  .then(response => response.json())
-  .then((rdata) => {
-    rdata = Object.values(rdata)
-    setData({articles: rdata})
-    console.log('articles', rdata)
-  })
+  useEffect(() => {
+  // https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=API_KEY
+  console.log(process.env.REACT_APP_API_KEY)
+    const getNews = async () => {
+      try {
+        const url = `https://newsapi.org/v2/everything?q=${search}&sortBy=publishedAt&apiKey=${process.env.REACT_APP_API_KEY}`
+      
+        const response = await axios.get(url)
+        console.log(response.data)
+        setApiResponse(response.data.articles)
+      } catch (err) {
+        console.warn(err)
+      }
+  }
+  getNews()
 }, [])
 
-const articlesList = data.articles.map((article, i) => {
-  return <li>{article.name['Gismodo.jp']}</li>
-})
-
-const handleChange = e => {
-  setSearch(e.target.value)
-}
-
-const getFilteredArticles = e => {
-  let searchTerm = search.toLowerCase()
-  return data.articles.filter(news => {
-    let lowerCaseName = news.name['Gismodo.jp'].toLowerCase()
-    return lowerCaseName.includes(searchTerm)
-  })
-}
-  
 
   return (
     <div className="App">
@@ -45,11 +38,15 @@ const getFilteredArticles = e => {
         <Routes>
           <Route 
             path="/" 
-            element={<Landing />}
-            setSearch={setSearch}
-            handleChange={handleChange}
+            element={
+              <Landing 
+                apiResponse={apiResponse} 
+                inputValue={inputValue} 
+                setInputValue={setInputValue}
+                setSearch={setSearch} 
+              />}
            />
-          <Route path="/display" element={<Display />} />
+          <Route path="/display/:id" element={<Display apiResponse={apiResponse} />} />
         </Routes>
       </main>
     </div>

@@ -1,24 +1,42 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 
 function Landing(props) {
-    const allArticles = props.data.map((title, id) => {
-        if(title){
-            return 
+    const articles = props.apiResponse.map((article, i) => {
+            return (
                 <div
-                    key={id}>
-                    <li>{`/display/${id}`}{title}</li>
+                    key={`article${i}`}>
+                    <Link to={`/display/${i}`}>
+                        <h2>{article.title}</h2>
+
+                        <p>{article.description}</p>
+
+                        <h3>by: {article.author}</h3>
+                    </Link>
                 </div>
-        }
-    })
+        )}
+    )
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        props.setSearch(props.inputValue)
+    }          
+
     return (
-      <div>
-        <h1>The News</h1>
-        <input 
-            type='text'
-            placeholder='search for a topic'
-            onChange={props.handleChange}
+      <>
+        <h1>News Search</h1>
+
+        <form onSubmit={handleSubmit}>
+            <label htmlFor='input'>Search:</label>
+            <input
+                type='text'
+                value={props.inputValue}
+                onChange={e => props.setInputValue(e.target.value)}
         />
-      </div>
+            <button type='submit'>Search</button>
+        </form>
+            {articles}
+      </>
     )
 }
 
