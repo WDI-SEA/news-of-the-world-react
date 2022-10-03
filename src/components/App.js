@@ -29,7 +29,7 @@ function App() {
   const handleRequest = async () => {
     // fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${KEY.api_key}`)
     try {
-      const response = await axios.get(`https://newsapi.org/v2/everything?q=${search}&apiKey=e7f324ec67c1406cb4aaab33d1865846`)
+      const response = await axios.get(`https://newsapi.org/v2/everything?q=${search}&apiKey=${KEY.api_key}`)
       setNews([response.data.articles])
     } catch(err) {
       console.warn(err)
