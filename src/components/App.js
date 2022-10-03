@@ -51,7 +51,7 @@ function App() {
     try {
       setInput(value)
       // search results of all languages sorted by popularity
-      const response = await fetch(`https://newsapi.org/v2/everything?q=${value}&sortBy=popularity&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`);
+      const response = await fetch(`https://newsapi.org/v2/everything?q=${value}&sortBy=publishedAt&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`);
       const articleData = await response.json();
       setArticles(articleData.articles);
     }

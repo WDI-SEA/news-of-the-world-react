@@ -17,7 +17,7 @@ function Display(props) {
                 <h2 className="text-3xl font-bold hover:text-gray-700">{article.title}</h2>
             </a>
             <div className="flex justify-between w-full">
-                <h3 className="text-xl">Author: {article.author}</h3>
+                <h3 className="text-xl">Author(s): {article.author} from {article.source.name}</h3>
                 <h3 className="text-xl">{dateSplit[0]}</h3>
             </div>
             <img src={article.urlToImage} alt={`${article.title} cover photo`} className="mt-2 rounded-lg shadow-xl self-center" />
