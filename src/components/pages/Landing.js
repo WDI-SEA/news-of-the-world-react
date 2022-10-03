@@ -7,7 +7,6 @@ function Landing(props) {
                 <img src={article.urlToImage} width='300px'></img>
                 <h1>{article.title}</h1>
                 <p>Written by: {article.author} {article.publishedAt}</p>
-                <p>{article.content}</p>
             </div>
         )
     })
