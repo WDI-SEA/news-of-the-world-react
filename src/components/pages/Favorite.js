@@ -3,7 +3,7 @@
 export default function Favorite(props) {
     // const favorites = props.news[0].find((result, idx) => props.faves.includes(idx.toString()))
     console.log(props.news)
-    const results = props.news[0].filter((article, idx) => props.faves.includes(idx.toString()))
+    const results = props.news.filter((article, idx) => props.faves.includes(idx.toString()))
     console.log(results)
     const showResults = results.map((result, imx) => {
         return(

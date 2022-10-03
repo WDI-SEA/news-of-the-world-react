@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 function Display(props) {
     let { articleId } = useParams()
-    let results = props.news[0][articleId]
+    let results = props.news[articleId]
     let showResult = () => {
         return (
             <div>

@@ -12,7 +12,7 @@ import KEY from '../API_Key'
 
 
 function App() {
-  let [news, setNews] = useState([[]])
+  let [news, setNews] = useState([])
   let [search, setSearch] = useState("biden")
   let [state, setState] = useState("")
   let [faves, setFaves] = useState([])
@@ -29,7 +29,7 @@ function App() {
   const handleRequest = async () => {
     try {
       const response = await axios.get(`https://newsapi.org/v2/everything?q=${search}&apiKey=${KEY.api_key}`)
-      setNews([response.data.articles])
+      setNews(response.data.articles)
     } catch(err) {
       console.warn(err)
     }

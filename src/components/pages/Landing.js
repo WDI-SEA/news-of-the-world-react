@@ -7,7 +7,7 @@ function Landing(props) {
     let results = ""
     
     if(props.search !== '') {
-        results = props.news[0].map((result, i) => {
+        results = props.news.map((result, i) => {
             return (
                 <div>
                     <h2><Link to={`/articles/${i}`} style={{color:'white'}}>{result.title}</Link></h2>
@@ -27,11 +27,7 @@ function Landing(props) {
                 <input type="text" id="search" onChange={e => setInput(e.target.value)} />
                 <button type='submit' id="search" onClick={() => props.handleClick(input)}>Submit</button>
             </p>
-            {/* {props.search !== '' ? results : null} */}
             {results}
-            {/* <div>
-                <p>{props.news}</p>
-            </div> */}
             
         </>
     )
