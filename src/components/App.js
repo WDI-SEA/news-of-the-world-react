@@ -9,6 +9,8 @@ import Landing from './pages/Landing';
 function App() {
   // response from API
   const [apiResponse, setApiResponse] = useState([])
+  // saved to read later
+  const [readLater, setReadLater] = useState([])
   // controlled input 
   const [inputValue, setInputValue] = useState('')
   // what to search on the api
@@ -40,6 +42,8 @@ function App() {
                 inputValue={inputValue} 
                 setInputValue={setInputValue} 
                 setSearch={setSearch} 
+                readLater={readLater}
+                setReadLater={setReadLater}
               />
             } 
           />
