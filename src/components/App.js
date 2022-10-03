@@ -11,6 +11,8 @@ import { useEffect, useState } from 'react';
 
 export default function App() {
 
+
+  // BUG IF USER ADDS A FAV AND THEN DOES A NEW SEARCH AND ADDS WITH SAME INDEX 
   
   // let [articles, setArticles]  = useState([])
   // response from API
