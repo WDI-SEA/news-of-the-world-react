@@ -24,7 +24,7 @@ function App() {
         const url = `https://newsapi.org/v2/everything?q=${search}&sortBy=publishedAt&apiKey=${process.env.REACT_APP_API_KEY}`
         const response = await axios.get(url)
         console.log(response.data)
-        setApiResponse(response.data.articles)
+        setApiResponse([...apiResponse,  ...response.data.articles])
       } catch (err) {
         console.warn(err)
       }
