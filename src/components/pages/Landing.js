@@ -2,7 +2,7 @@ import React from "react";
 
 function Landing() {
     return (
-        <h1>Landing Page</h1>
+        <h1>The News </h1>
     )
 }
 
