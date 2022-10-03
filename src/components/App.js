@@ -65,6 +65,13 @@ function App() {
               articleList={articleList}
             />}
           />
+
+          <Route
+            path="/articles/saved/:id"
+            element={<Display
+              savedArticleList={savedArticles}
+            />}
+          />
         </Routes>
       </main>
     </div>

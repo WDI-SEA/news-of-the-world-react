@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export default function Article(props) {
     return (
         <li>
-            <Link to={`/articles/${props.idx}`}>
+            <Link to={`/articles/${props.saved ? 'saved/' : ''}${props.idx}`}>
                 <h3>{props.article.title}</h3>
             </Link>
 

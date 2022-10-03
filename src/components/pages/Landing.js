@@ -34,6 +34,8 @@ function Landing(props) {
             <Article
                 key={`article-${i}`}
                 article={article}
+                idx={i}
+                saved={true}
             />
         )
     })

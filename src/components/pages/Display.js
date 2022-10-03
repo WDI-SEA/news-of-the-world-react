@@ -3,8 +3,12 @@ import { useParams } from 'react-router-dom'
 
 function Display(props) {
     const { id } = useParams()
-    const article = props.articleList[id]
-    if(!article) {
+    let article
+    if (props.savedArticleList) {
+        article = props.savedArticleList[id]
+    } else if(props.articleList) {
+        article = props.articleList[id]
+    } else {
         return <h2>Oops no article to display</h2>
     }
 
