@@ -4,9 +4,8 @@ function Landing(props) {
     const savedArticles = props.faves.map((article, i) => {
         return (
             <div key={`article${i}`}>
-            <h3><Link to={`/articles/${i}`}>{article.title}</Link></h3>
+            <h3><a href={`${article.url}`}>{article.title}</a></h3>
             <p>{article.content}</p>
-            <button onClick={() => props.handleClick(article)}>Save Article!</button>
         </div>
         )
     })
