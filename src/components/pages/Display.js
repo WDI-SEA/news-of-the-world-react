@@ -1,31 +1,28 @@
 import React from "react";
-import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
-// use params b/c its using an array. drill down for info
 
-export default function Display(props) {
-    const { id } = useParams()  
-    const article = props.apiResonse[id] 
-        console.log(article)
-
+function Display(props) {
+    const { id } = useParams()
+    const article = props.apiResponse[id]
+    console.log(article)
+    if (!article) {
+        return <h1>oops something when wrong 😱</h1>
+    }
     return (
-        <div>
+        <>
             <h1>Display Page</h1>
-            <h1>{article.title}</h1>
-            <p>by {article.author}</p>
+
+            <h2>{article.title}</h2>
+
+            <p>by: {article.author}</p>
+
+            <img src={article.urlToImage} alt={article.title} />
+
             <p>{article.content}</p>
-            
-            <div className="imageContainer">
-                <img className="image" src={article.urlToImage} alt={article.title} />
-            </div>
-            
-            <a href={article.url}>See Full Article</a>
 
-            <div>
-                <Link to='/'>Home</Link>
-            </div>
-
-        </div>
-
+            <a target='_blank' href={article.url}>see more chars</a>
+        </>
     )
 }
+
+export default Display;

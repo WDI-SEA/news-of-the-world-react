@@ -1,68 +1,53 @@
-import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import '../App.css';
+import { useState, useEffect } from 'react'
 import axios from 'axios'
-
+import '../App.css';
 
 import Display from './pages/Display';
 import Landing from './pages/Landing';
 
-
-export default function App() {
+function App() {
   // response from API
-  const [apiResonse, setApiResponse] = useState([])
-  // control input
+  const [apiResponse, setApiResponse] = useState([])
+  // controlled input 
   const [inputValue, setInputValue] = useState('')
-  // what to search on API
+  // what to search on the api
   const [search, setSearch] = useState('programming')
 
-
-  // const handleChange = (e) => {
-  //   setSearch(e.target.value)
-  // }
-
-  useEffect(() => {    
+  useEffect(() => {
+    // https://newsapi.org/v2/everything?q=tesla&sortBy=publishedAt&apiKey=API_KEY
+    console.log(process.env.REACT_APP_API_KEY)
     const getNews = async () => {
       try {
-        const url = `https://newsapi.org/v2/everything?q=${search}&from=2022-09-02&sortBy=publishedAt&apiKey=${process.env.ENV_API_KEY}`
-
+        const url = `https://newsapi.org/v2/everything?q=${search}&sortBy=publishedAt&apiKey=22c7e6648f81407b881453d91c44ec70`
         const response = await axios.get(url)
-          console.log(response)
-          console.log(response.data)
+        console.log(response.data)
         setApiResponse(response.data.articles)
-      } catch(err) {
+      } catch (err) {
         console.warn(err)
       }
     }
     getNews()
-  }, [])
-
-
- 
+  }, [search])
 
   return (
-    <>
-      <div>
-        <h1>WorldMedia News</h1>
-      </div>
-
-      <Routes>
-        <Route path="/" element={
-            <Landing 
-              apiResonse={apiResonse} 
-              inputValue={inputValue} 
-              setInputValue={setInputValue} setSearch={setSearch}
-            />
-          } 
-        />
-        <Route path="/display/:id" element={
-            <Display 
-              apiResonse={apiResonse}  
-            /> } 
-        />
-      </Routes>  
-    </>
-  
-
+    <div className="App">
+      <main>
+        <Routes>
+          <Route path="/" element={
+              <Landing 
+                apiResponse={apiResponse} 
+                inputValue={inputValue} 
+                setInputValue={setInputValue} 
+                setSearch={setSearch} 
+              />
+            } 
+          />
+          <Route path="/display/:id" element={<Display apiResponse={apiResponse} />} />
+        </Routes>
+      </main>
+    </div>
   );
 }
+
+export default App;
