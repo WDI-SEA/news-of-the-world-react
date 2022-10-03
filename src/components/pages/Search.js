@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 function Landing(props) {
     const articlesArray = props.articles.map((article, i) => {
         return (
-            <li key={`article-${i}`}>
-                <Link to={`/articles/${i}`}>{article.title}  {article.publishedAt}</Link>
+            <li key={`search-${i}`}>
+                <Link to={`/search/${i}`}>{article.title}  {article.publishedAt}</Link>
             </li>
         )
     })
@@ -18,7 +18,7 @@ function Landing(props) {
     return (
         <div>
             <div>
-                <h1>Breaking News</h1>
+                <h1>Search Results:</h1>
                 <ol>{articlesArray}</ol>
             </div>
             <div>
