@@ -1,18 +1,16 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom'
 
 function Display(props) {
-    const {id}=useParams()
+    const { id } = useParams()
     const article = props.apiResponse[id]
-    console.log(props.apiResponse)
+    console.log(article)
     if (!article) {
         return <h1>oops something when wrong 😱</h1>
     }
-
     return (
         <>
             <h1>Display Page</h1>
-
 
             <h2>{article.title}</h2>
             
