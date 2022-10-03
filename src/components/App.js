@@ -27,7 +27,6 @@ function App() {
   }
 
   const handleRequest = async () => {
-    // fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${KEY.api_key}`)
     try {
       const response = await axios.get(`https://newsapi.org/v2/everything?q=${search}&apiKey=${KEY.api_key}`)
       setNews([response.data.articles])
