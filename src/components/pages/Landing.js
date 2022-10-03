@@ -1,13 +1,12 @@
 import React from "react";
-import { useState, useEffect } from 'react'
 import { Link} from 'react-router-dom'
+import { useState } from "react";
 
-import Display from "./Display";
+import Favorites from "./Favorites"
 
-function Landing(props) {
+function Landing({faves, setFaves, setInput}) {
 
-    const [input, setInput] = useState('')
-
+    
     const handleChange = e => {
         setInput(e.target.value)
     }
@@ -27,8 +26,9 @@ function Landing(props) {
                 <button>See the News</button>
             </Link>
 
-            <Display
-                input={input}
+            <Favorites 
+                faves={faves}
+                setFaves={setFaves}
             />
         </div>
     )

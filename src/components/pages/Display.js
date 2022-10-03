@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
 import axios from "axios";
 
 function Display(props) {
@@ -6,6 +7,12 @@ function Display(props) {
     const [newsResults, setNewsResults] = useState([])
     console.log(props.input)
     
+    const handleClick = result => {
+        // console.log(result)
+        props.setFaves([...props.faves, result])
+        console.log(props.faves)
+    }
+
     useEffect(() => {
         async function fetchNews() {
             try{
@@ -30,17 +37,22 @@ function Display(props) {
                     <h3>{result.title}</h3>
                     <img src={result.urlToImage} width="500px" alt={result.title}/>
                 </a> 
+                <button onClick={() => handleClick(result)}>Add to Favorites</button>
                 <p>By: {result.author} for "{result.source.name}"</p>
             </li>
         )
     })
 
     return (
-        
-        <ul>
-            {resultsDisplay}
-        </ul>
+        <div>
+            <Link to={"/"}>
+                Back Home
+            </Link>
+            <ul>
+                {resultsDisplay}
+            </ul>
 
+        </div>
     )
 }
 

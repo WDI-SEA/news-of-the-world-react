@@ -8,14 +8,33 @@ import Landing from './pages/Landing';
 
 
 function App() {
-
-
+  
+  const [input, setInput] = useState('')
+  const [faves, setFaves] = useState([])
 
   return (
     <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/display" element={<Display />} />
+          <Route 
+            path="/" 
+            element={
+              <Landing 
+                setInput={setInput}
+                faves={faves}
+                setFaves={setFaves}
+              />
+            } 
+          />
+          <Route 
+            path="/display" 
+            element={
+              <Display
+                faves={faves}
+                setFaves={setFaves} 
+                input={input}
+              />
+            } 
+          />
         </Routes>
     </BrowserRouter>
   );
