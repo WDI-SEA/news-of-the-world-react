@@ -3,32 +3,39 @@ import { useEffect, useState } from 'react';
 import '../App.css';
 import axios from 'axios'
 
-
 import Display from './pages/Display';
 import Landing from './pages/Landing';
 
 
 function App() {
 
+const [data, setData] = useState({articles: []})
 const [search, setSearch] = useState('')
 
-useEffect (() => {
-  const API_KEY = process.env.REACT_APP_NEWS_API_KEY
-  const url = `https://newsapi.org/v2/everything?q=null&apiKey=${API_KEY}`
-  async function searchNews() {
-    try {
-      const response = await axios.get(url)
-
-    } catch (err) {
-      console.warn(err)
-    }
-  }
-    searchNews()
+useEffect(() => {
+  fetch(`https://newsapi.org/v2/everything?q=${value}&sortBy=popularity&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`)
+  .then(response => response.json())
+  .then((rdata) => {
+    rdata = Object.values(rdata)
+    setData({articles: rdata})
+    console.log('articles', rdata)
+  })
 }, [])
 
+const articlesList = data.articles.map((article, i) => {
+  return <li>{article.name['Gismodo.jp']}</li>
+})
 
-function handleChange (e) {
+const handleChange = e => {
   setSearch(e.target.value)
+}
+
+const getFilteredArticles = e => {
+  let searchTerm = search.toLowerCase()
+  return data.articles.filter(news => {
+    let lowerCaseName = news.name['Gismodo.jp'].toLowerCase()
+    return lowerCaseName.includes(searchTerm)
+  })
 }
   
 
