@@ -16,6 +16,7 @@ function Display(props) {
 
     return (
         <div>
+            <img src={article.urlToImage} alt={article.title}/>
             <a target="_blank" href={article.url} rel="noreferrer">
                 <h2>{article.title}</h2>
             </a>
