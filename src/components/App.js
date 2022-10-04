@@ -12,7 +12,8 @@ function App() {
   // controlled input 
   const [inputValue, setInputValue] = useState('')
   // what to search on the api
-  const [search, setSearch] = useState('programming')
+  const [search, setSearch] = useState('crypto')
+  //
 
   useEffect(() => {
     // https://newsapi.org/v2/everything?q=tesla&sortBy=publishedAt&apiKey=API_KEY

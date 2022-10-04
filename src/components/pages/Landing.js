@@ -13,9 +13,21 @@ function Landing(props) {
 
                     <h3>by: {article.author}</h3>
                 </Link>
+
+                {/* <div>
+                    <button onClick={() => props.setReadLater([...props.readLater, { id: i, article }])}>read later</button>
+                </div> */}
             </div>
         )
     })
+
+    // const readLaters = props.readLater.map(readLater => {
+    //     return(
+    //         <li key={`readLader${readLater.id}`}>
+    //             <Link to={`/display/${readLater.id}`}>{readLater.article.title}</Link>
+    //         </li>
+    //     )
+    // })
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -37,6 +49,9 @@ function Landing(props) {
                 <button type='submit'>Search</button>
             </form>
 
+            <h2>Read later</h2>
+
+            <h2>Articles</h2>
             {articles}
         </>
     )

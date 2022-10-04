@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 function Display(props) {
     const { id } = useParams()
     const article = props.apiResponse[id]
-    console.log(article)
+        console.log(article)
     if (!article) {
         return <h1>oops something when wrong 😱</h1>
     }
