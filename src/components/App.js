@@ -1,35 +1,29 @@
+
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../App.css';
-
 import Display from './pages/Display';
 import Landing from './pages/Landing';
-
 function App() {
-  // response from API
   const [apiResponse, setApiResponse] = useState([])
-  // controlled input 
   const [inputValue, setInputValue] = useState('')
-  // what to search on the api
   const [search, setSearch] = useState('programming')
-
+  const [readLater, setReadLater] = useState()
   useEffect(() => {
-    // https://newsapi.org/v2/everything?q=tesla&sortBy=publishedAt&apiKey=API_KEY
     console.log(process.env.REACT_APP_API_KEY)
     const getNews = async () => {
       try {
         const url = `https://newsapi.org/v2/everything?q=${search}&sortBy=publishedAt&apiKey=${process.env.REACT_APP_API_KEY}`
         const response = await axios.get(url)
         console.log(response.data)
-        setApiResponse(response.data.articles)
+        setApiResponse(...apiResponse, ...response.data.articles)
       } catch (err) {
         console.warn(err)
       }
     }
     getNews()
   }, [search])
-
   return (
     <div className="App">
       <main>
@@ -40,6 +34,8 @@ function App() {
                 inputValue={inputValue} 
                 setInputValue={setInputValue} 
                 setSearch={setSearch} 
+                readLater={readLater}
+                setReadLater={setReadLater}
               />
             } 
           />
@@ -49,5 +45,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

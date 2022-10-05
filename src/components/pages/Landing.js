@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-
 function Landing(props) {
     const articles = props.apiResponse.map((article, i) => {
         return (
@@ -12,19 +11,26 @@ function Landing(props) {
 
                     <h3>by: {article.author}</h3>
                 </Link>
+                <div>
+                    <button onClick={() => props.setReadLater([...props.readLater, { id: i, article}])} >read later</button>
+                </div>
             </div>
         )
     })
-
+    const readLaters = props.readLater.map(readLater => {
+        return (
+            <div>
+                <Link to={`/display/${readLater.id}`}>{readLater.article.title}</Link>
+            </div>
+        )
+    })
     const handleSubmit = e => {
         e.preventDefault()
         props.setSearch(props.inputValue)
     }
-
     return (
         <>
             <h1>News Search</h1>
-
             <form onSubmit={handleSubmit}>
                 <label htmlFor="input">Search:</label>
                 <input 
@@ -32,13 +38,13 @@ function Landing(props) {
                     value={props.inputValue}
                     onChange={e => props.setInputValue(e.target.value)}
                 />
-
                 <button type='submit'>Search</button>
             </form>
-
+            <h2>Read Later:</h2>
+            {readLaters}
+            <h2>Articles:</h2>
             {articles}
         </>
     )
 }
-
 export default Landing;
