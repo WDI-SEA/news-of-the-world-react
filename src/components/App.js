@@ -9,6 +9,8 @@ import Landing from './pages/Landing';
 function App() {
   // response from API
   const [apiResponse, setApiResponse] = useState([])
+  // saved to read later
+  const [readLater, setReadLater] = useState([])
   // controlled input 
   const [inputValue, setInputValue] = useState('')
   // what to search on the api
@@ -22,7 +24,7 @@ function App() {
         const url = `https://newsapi.org/v2/everything?q=${search}&sortBy=publishedAt&apiKey=${process.env.REACT_APP_API_KEY}`
         const response = await axios.get(url)
         console.log(response.data)
-        setApiResponse(response.data.articles)
+        setApiResponse([...apiResponse,  ...response.data.articles])
       } catch (err) {
         console.warn(err)
       }
@@ -40,6 +42,8 @@ function App() {
                 inputValue={inputValue} 
                 setInputValue={setInputValue} 
                 setSearch={setSearch} 
+                readLater={readLater}
+                setReadLater={setReadLater}
               />
             } 
           />

@@ -6,13 +6,25 @@ function Landing(props) {
         return (
             <div key={`article${i}`}>
                 <Link to={`/display/${i}`}>
-                    <h2>{article.title}</h2>
+                    <h3>{article.title}</h3>
 
                     <p>{article.description}</p>
 
-                    <h3>by: {article.author}</h3>
+                    <h4>by: {article.author}</h4>
                 </Link>
+
+                <div>
+                    <button onClick={() => props.setReadLater([...props.readLater, { id: i, article }])}>read later</button>
+                </div>
             </div>
+        )
+    })
+
+    const readLaters = props.readLater.map(readLater => {
+        return (
+            <li key={`readLater${readLater.id}`}>
+                <Link to={`/display/${readLater.id}`}>{readLater.article.title}</Link>
+            </li>
         )
     })
 
@@ -36,6 +48,14 @@ function Landing(props) {
                 <button type='submit'>Search</button>
             </form>
 
+            <h2>Read Later:</h2>
+
+            <ul>
+                {readLaters}
+            </ul>
+
+            <h2>Articles:</h2>
+            
             {articles}
         </>
     )
