@@ -36,10 +36,6 @@ With that in mind, create a search feature which queries your API based on user 
 
 There are multiple ways to go about this. If you're struggling to implement, think about limiting potential user input to guarantee they return specific endpoints. Or, let the user input any text and do the search functionality just like animal crossing!
 
-
-#### Part 4: Favorites
-Add a functionality where the user can save articles (in case they want to read later). You can decide how you want the UX/UI for this part of it to go! Just make sure you have displaying a list on teh landing page of all the saved articles (like favorites in the animal crossing app).
-
 #### Bonus: Fully Responsive
 If you've gotten this far, good job! You have one last task remaining: to make your app fully responsive.
 
